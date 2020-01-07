@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tourist: one
+  tourist_language: MyString
+
+two:
+  tourist: two
+  tourist_language: MyString
