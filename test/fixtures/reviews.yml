@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tourist: one
+  guide: one
+  comment: MyText
+  deleted_at: 2020-01-07 11:44:55
+
+two:
+  tourist: two
+  guide: two
+  comment: MyText
+  deleted_at: 2020-01-07 11:44:55
