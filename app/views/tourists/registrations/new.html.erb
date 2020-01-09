@@ -4,6 +4,55 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
+    <p>lastname</p>
+    <%= f.text_field :tourist_lastname, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <p>firstname</p>
+    <%= f.text_field :tourist_firstname, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <p>username</p>
+    <%= f.text_field :tourist_username, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <p>性別</p>
+      <label><%= f.radio_button :tourist_gender, 1 %>male</label>
+      <label><%= f.radio_button :tourist_gender, 2 %>female</label>
+      <label><%= f.radio_button :tourist_gender, 3 %>other</label>
+  </div>
+
+  <div class="field">
+    <p>age</p>
+      <%= f.text_field :tourist_age, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <p>profile-image</p>
+    <%= f.file_field :tourist_profile_image, size:10, maxlength:15 %>
+  </div>
+
+
+  <div class="field">
+    <p>description</p>
+    <%= f.text_field :tourist_about_me, autofocus: true %>
+  </div>
+
+
+  <div class="field">
+    <p>fromdate</p>
+    <%= f.date_field :fromdate%>
+  </div>
+
+  <div class="field">
+    <p>todate</p>
+    <%= f.date_field :todate%>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>

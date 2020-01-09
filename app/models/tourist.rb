@@ -2,7 +2,7 @@ class Tourist < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :confirmable
 
   has_many :tourist_pictures
   has_many :tourist_native_countries
@@ -26,7 +26,5 @@ class Tourist < ApplicationRecord
   validates :tourist_about_me, presence: true, length: { maximum: 300 }
   validates :fromdate, presence: true
   validates :todate, presence: true
-
-  acts_as_paranoid
 
 end

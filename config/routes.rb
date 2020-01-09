@@ -10,12 +10,14 @@ Rails.application.routes.draw do
   }
 
   devise_for :guides, controllers: {
+  confirmations: 'guides/confirmations',
   sessions:      'guides/sessions',
   passwords:     'guides/passwords',
   registrations: 'guides/registrations'
   }
 
   devise_for :tourists, controllers: {
+  confirmations: 'tourists/confirmations',
   sessions:      'tourists/sessions',
   passwords:     'tourists/passwords',
   registrations: 'tourists/registrations'
