@@ -1,0 +1,7 @@
+<h1>Guides::Guides#mypage</h1>
+<p>Find me in app/views/guides/guides/mypage.html.erb</p>
+
+
+<% if guide_signed_in? %>
+<p><%= link_to "ログアウト", destroy_guide_session_path, method: :delete %></p>
+<% end %

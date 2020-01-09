@@ -1,0 +1,73 @@
+<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <p>苗字</p>
+    <%= f.text_field :guide_lastname, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <p>名</p>
+    <%= f.text_field :guide_firstname, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <p>ユーザー名</p>
+    <%= f.text_field :guide_username, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <p>性別</p>
+      <label><%= f.radio_button :guide_gender, 1 %>男</label>
+      <label><%= f.radio_button :guide_gender, 2 %>女</label>
+      <label><%= f.radio_button :guide_gender, 3 %>その他</label>
+  </div>
+
+  <div class="field">
+    <p>年齢</p>
+      <<%= f.text_field :guide_age, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <p>プロフィール写真</p>
+    <%= f.file_field :guide_profile_image, size:10, maxlength:15 %>
+  </div>
+
+
+  <div class="field">
+    <p>説明</p>
+    <%= f.text_field :guide_about_me, autofocus: true %>
+  </div>
+
+
+  <div class="field">
+    <p>観光可能日</p>
+    <%= f.date_field :daysofweek%>
+  </div>
+
+  <div class="field">
+    <p>メールアドレス</p>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <p>パスワード</p>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <p>パスワード確認</p>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "アカウント登録" %>
+  </div>
+<% end %>
+
+<%= render "guides/shared/links" %>
