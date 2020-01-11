@@ -10,25 +10,33 @@ Rails.application.routes.draw do
   }
 
   devise_for :guides, controllers: {
+  confirmations: 'guides/confirmations',
   sessions:      'guides/sessions',
   passwords:     'guides/passwords',
   registrations: 'guides/registrations'
   }
 
   devise_for :tourists, controllers: {
+  confirmations: 'tourists/confirmations',
   sessions:      'tourists/sessions',
   passwords:     'tourists/passwords',
   registrations: 'tourists/registrations'
   }
 
   scope module: :guides do
-    resources :guides, :only => [:index, :show, :update, :destroy]
-    get 'guides/mypage' => 'guides#mypage'
+    resources :guides, :only => [:index, :show, :update, :destroy] do
+      member do
+        get 'mypage'
+      end
+    end
   end
 
   scope module: :tourists do
-    resources :tourists, :only => [:index, :show, :update, :destroy]
-    get 'tourists/mypage' => 'tourits#mypage'
+    resources :tourists, :only => [:index, :show, :update, :destroy] do
+      member do
+        get 'mypage'
+      end
+    end
   end
 
   namespace :admins do

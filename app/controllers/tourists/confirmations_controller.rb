@@ -12,9 +12,11 @@ class Tourists::ConfirmationsController < Devise::ConfirmationsController
   # end
 
   # GET /resource/confirmation?confirmation_token=abcdef
-  # def show
-  #   super
-  # end
+  def show
+    super do |resource|
+      sign_in(resource)
+    end
+  end
 
   # protected
 

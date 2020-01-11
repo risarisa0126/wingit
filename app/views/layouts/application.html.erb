@@ -11,31 +11,27 @@
 
 
     <header>
+      <nav class="navbar navbar-light" style="background-color:#ffffff;">
+        <a class="navbar-brand" href="#">WINGIT</a>
+        <ul class="nav navbar-nav navbar-right">
+          <% if tourist_signed_in? %>
+            <%= link_to 'mypage', mypage_tourist_path %>
+            <%= link_to "logout", destroy_tourist_session_path, method: :delete %>
+          <% elsif guide_signed_in?%>
+            <%= link_to 'mypage', mypage_guide_path %>
+            <%= link_to "logout", destroy_guide_session_path, method: :delete %>
+          <% else %>
+            <%= link_to "新規登録", new_tourist_registration_path %>
+            <%= link_to "ログイン", new_tourist_session_path %>
+          <% end %>
+         </ul>
+      </nav>
     </header>
 
   <body>
-    <p class="notice"><%= notice %></p>
+    <!-- <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-
-
-    <p>tourist</p>
-    <% if tourist_signed_in? %>
-      <%= link_to 'mypage', tourists_mypage_path %>
-      <%= link_to "logout", destroy_tourist_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "新規登録", new_tourist_registration_path %>
-      <%= link_to "ログイン", new_tourist_session_path %>
-    <% end %>
-
-    <p>guide</p>
-    <% if guide_signed_in? %>
-      <%= link_to 'mypage', guides_mypage_path %>
-      <%= link_to "logout", destroy_guide_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "新規登録", new_guide_registration_path %>
-      <%= link_to "ログイン", new_guide_session_path %>
-    <% end %>
-
+ -->
 
     <%= yield %>
   </body>
