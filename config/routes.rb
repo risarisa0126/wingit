@@ -24,13 +24,19 @@ Rails.application.routes.draw do
   }
 
   scope module: :guides do
-    resources :guides, :only => [:index, :show, :update, :destroy]
-    get 'guides/mypage' => 'guides#mypage'
+    resources :guides, :only => [:index, :show, :update, :destroy] do
+      member do
+        get 'mypage'
+      end
+    end
   end
 
   scope module: :tourists do
-    resources :tourists, :only => [:index, :show, :update, :destroy]
-    get 'tourists/mypage' => 'tourits#mypage'
+    resources :tourists, :only => [:index, :show, :update, :destroy] do
+      member do
+        get 'mypage'
+      end
+    end
   end
 
   namespace :admins do

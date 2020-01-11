@@ -4,9 +4,9 @@ before_action :configure_permitted_parameters, if: :devise_controller?
 def after_sign_in_path_for(resource)
   case resource
   when Guide
-    guides_mypage_path(resource.id)
+    mypage_guide_path(resource.id)
   when Tourist
-    tourists_mypage_path(resource.id)
+    mypage_guide_path(resource.id)
   when Admin
   	admins_users_index_path(resource.id)
   end
