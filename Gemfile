@@ -69,5 +69,9 @@ gem 'kaminari'
 gem 'bootstrap', '~> 4.3.1'
 gem 'ransack'
 gem 'pry-byebug'
-gem 'paranoia'
 gem 'jquery-rails'
+
+
+group :production do
+  gem 'mysql2'
+end
