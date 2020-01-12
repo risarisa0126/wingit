@@ -1,7 +1,63 @@
-<h1>Guides::Guides#mypage</h1>
-<p>Find me in app/views/guides/guides/mypage.html.erb</p>
+<h1>Guidesmypage</h1>
+<div class="container">
+ 	<div class="row">
+  		<div class="col">
+  			<div class="float-right">
+			<%= attachment_image_tag current_guide, :guide_profile_image, :fill, 1000, 1000, size: '150x150', fallback: "no_image.jpg", class: "rounded-circle"  %>
+			</div>
+		</div>
+		<div class="col">
+			<div class="row" style="margin:30px;">
+				<div class="col-xl-4">
+					<p>名前</p>
+				</div>
+				<div class="col-xl-6">
+					<%= @guide.guide_lastname %><%= @guide.guide_firstname %>
+				</div>
+			</div>
+			<div class="row" style="margin:30px;">
+				<div class="col-xl-4">
+					<p>ユーザー名</p>
+				</div>
+				<div class="col-xl-6">
+					<%= @guide.guide_username %>
+				</div>
+			</div>
+			<div class="row" style="margin:30px;">
+				<div class="col-xl-4">
+					<p>性別</p>
+				</div>
+				<div class="col-xl-6">
+					<%= @guide.guide_gender %>
+				</div>
+			</div>
+			<div class="row" style="margin:30px;">
+				<div class="col-xl-4">
+					<p>年齢</p>
+				</div>
+				<div class="col-xl-6">
+					<%= @guide.guide_age %>
+				</div>
+			</div>
+			<div class="row" style="margin:30px;">
+				<div class="col-xl-4">
+					<p>自己紹介</p>
+				</div>
+				<div class="col-xl-6">
+					<%= @guide.guide_about_me %>
+				</div>
+			</div>
+			<div class="row" style="margin:30px;">
+				<div class="col-xl-4">
+					<p>案内可能日時</p>
+				</div>
+				<div class="col-xl-6">
+					<%= @guide.daysofweek %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
 
-<% if guide_signed_in? %>
-<p><%= link_to "ログアウト", destroy_guide_session_path, method: :delete %></p>
-<% end %>
+<%= link_to "logout", destroy_guide_session_path, method: :delete %>

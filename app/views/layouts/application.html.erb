@@ -7,6 +7,10 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js"></script>
   </head>
 
 
@@ -15,11 +19,13 @@
         <a class="navbar-brand" href="#">WINGIT</a>
         <ul class="nav navbar-nav navbar-right">
           <% if tourist_signed_in? %>
-            <%= link_to 'mypage', mypage_tourist_path %>
-            <%= link_to "logout", destroy_tourist_session_path, method: :delete %>
+            <%= link_to mypage_tourist_path(current_tourist.id) do %>
+            <%= attachment_image_tag current_tourist, :tourist_profile_image, :fill, 1000, 1000, size: '50x50', class: "rounded-circle"  %>
+          <% end %>
           <% elsif guide_signed_in?%>
-            <%= link_to 'mypage', mypage_guide_path %>
-            <%= link_to "logout", destroy_guide_session_path, method: :delete %>
+            <%= link_to mypage_guide_path(current_guide.id) do %>
+            <%= attachment_image_tag current_guide, :guide_profile_image, :fill, 1000, 1000, size: '50x50', class: "rounded-circle"  %>
+          <% end %>
           <% else %>
             <%= link_to "新規登録", new_tourist_registration_path %>
             <%= link_to "ログイン", new_tourist_session_path %>
