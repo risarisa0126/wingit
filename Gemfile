@@ -70,3 +70,8 @@ gem 'bootstrap', '~> 4.1.1'
 gem 'ransack'
 gem 'pry-byebug'
 gem 'jquery-rails'
+
+
+group :production do
+  gem 'mysql2'
+end
