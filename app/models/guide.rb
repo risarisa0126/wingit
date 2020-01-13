@@ -10,6 +10,11 @@ class Guide < ApplicationRecord
   has_many :guide_native_countries
   has_many :guide_native_launguages
   has_many :guide_practicing_launguages
+
+  accepts_nested_attributes_for :guide_native_countries, allow_destroy: true
+  accepts_nested_attributes_for :guide_native_launguages, allow_destroy: true
+  accepts_nested_attributes_for :guide_practicing_launguages, allow_destroy: true
+
   has_many :able_to_guide_places
   has_many :favorites
   has_many :reviews

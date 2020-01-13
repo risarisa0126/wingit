@@ -13,8 +13,34 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require jquery
+
+//= require cocoon
+//= require bootstrap-sprockets
 //= require_tree .
 
-//= require jquery3
-//= require popper
-//= require bootstrap-sprockets
+
+
+$(document).ready(function () {
+	$('.menu-trigger').on('click',function(){
+	    if($(this).hasClass('active')){
+	      $(this).removeClass('active');
+	      $('main').removeClass('open');
+	      $('side').removeClass('open');
+	      $('.overlay').removeClass('open');
+	    } else {
+	      $(this).addClass('active');
+	      $('main').addClass('open');
+	      $('side').addClass('open');
+	      $('.overlay').addClass('open');
+	    }
+	  });
+	  $('.overlay').on('click',function(){
+	    if($(this).hasClass('open')){
+	      $(this).removeClass('open');
+	      $('.menu-trigger').removeClass('active');
+	      $('main').removeClass('open');
+	      $('side').removeClass('open');
+	    }
+	  });
+});
