@@ -2,8 +2,31 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.main-top{
-	width: 300px;
-    height: 500px;
-	background-color: red;
+
+.top{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.top-image{
+    height: 700px;
+    background-image: url(brevite-KJWjsztHPPU-unsplash.jpg);
+  	background-size: cover;
+  	background_position: center center;
+    background-repeat: no-repeat;
+ 	background-attachment: fixed;
+}
+
+.top-logo{
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+  color: #fff;
+  letter-spacing: 0.4rem;
+  font-size :150px;
+}
+
+.card{
+  margin-left: 10px;
 }

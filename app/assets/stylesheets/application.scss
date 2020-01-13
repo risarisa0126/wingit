@@ -1,10 +1,17 @@
 @import "bootstrap";
+@import "home.scss";
+@import "guides/guides.scss";
+@import "guides/rooms.scss";
+@import "tourists/tourists.scss";
+@import "tourists/rooms.scss";
 
-.top-logo{
-    height: 650px;
-	background-color: #fff5ee;
-  	background-size: cover;
-    background-repeat: no-repeat;
- 	background-attachment: fixed;
+h1{
+	padding: 50px;
+	text-align: center;
 }
+
+
+
+
+
 
