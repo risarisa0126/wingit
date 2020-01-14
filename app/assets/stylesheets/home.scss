@@ -9,6 +9,7 @@
   align-items: center;
   text-align: center;
   margin: 0 auto;
+  background-color: #fffafa;
 }
 
 .top-image{
@@ -17,14 +18,14 @@
   	background-size: cover;
   	background_position: center center;
     background-repeat: no-repeat;
- 	background-attachment: fixed;
+ 	  background-attachment: fixed;
 }
 
 .top-logo{
   text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
   color: #fff;
-  letter-spacing: 0.4rem;
-  font-size :150px;
+  letter-spacing: 1.0rem;
+  font-size :200px;
 }
 
 .card{
