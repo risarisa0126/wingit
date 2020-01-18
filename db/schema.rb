@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_07_114704) do
+ActiveRecord::Schema.define(version: 2020_01_15_071938) do
 
   create_table "able_to_guide_places", force: :cascade do |t|
     t.integer "guide_id"
@@ -112,6 +112,7 @@ ActiveRecord::Schema.define(version: 2020_01_07_114704) do
     t.text "body", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_guide", default: true
     t.index ["room_id"], name: "index_messages_on_room_id"
   end
 

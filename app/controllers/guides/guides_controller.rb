@@ -8,6 +8,7 @@ class Guides::GuidesController < ApplicationController
 
 
   def show
+    @room = Room.new
   end
 
   def mypage

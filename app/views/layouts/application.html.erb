@@ -18,7 +18,7 @@
       <nav class="navbar navbar-light" style="background-color:#ffffff;">
         <a class="navbar-brand" href="/">WINGIT</a>
         <ul class="nav navbar-nav navbar-right">
-          <div class="menu-trigger" href="/">
+          <div class="menu-trigger" href="">
             <span></span>
             <span></span>
             <span></span>
@@ -35,6 +35,7 @@
               <li><%= link_to "logout", destroy_guide_session_path, method: :delete %></li>
               <li><%= link_to "indexpage", guides_path %></li>
               <li><%= link_to "showpage", guide_path(current_guide.id) %></li>
+              <li><%= link_to "チャットルーム一覧", rooms_path(current_guide.id) %></li>
             <% else %>
               <li><%= link_to "新規登録", new_tourist_registration_path %></li>
               <li><%= link_to "ログイン", new_tourist_session_path %></li>

@@ -6,8 +6,16 @@
 @import "tourists/rooms.scss";
 
 h1{
-	padding: 10px;
+	padding: 50px;
 	text-align: center;
+}
+
+.left-message{
+  text-align: left;
+}
+
+.right-message{
+  text-align: right;
 }
 
 
@@ -30,7 +38,6 @@ h1{
 }
 main {
   height: 100%;
-  min-height: 50vh;
   padding: 0 50px;
   background-color: #fff;
   transition: all .5s;

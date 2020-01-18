@@ -6,14 +6,18 @@
 
 <h1>GUIDES</h1>
 
-<div class="card" style="width: 15rem;">
-  <img class="card-img-top" src="..." alt="カードの画像">
-  <div class="card-body">
-    <h5 class="card-title">カードのタイトル</h5>
-    <p class="card-text">以下のテキストを追加のコンテンツへの自然な導入としてサポート。 カードのコンテンツ カードのコンテンツ</p>
-    <a href="#" class="btn btn-primary">ボタン</a>
-  </div>
+<div class="row text-center" style="width: 15rem;">
+	<% @guides.each do |guide| %>
+		<%= link_to guide_path(guide.id) do %>
+      	  <%= attachment_image_tag guide, :guide_profile_image, :fill, 1000, 1000, size: '240x240', class: "rounded" %>
+    	<% end %>
+    	 <h5 class="card-title">Card title</h5>
+    <% end %>
 </div>
+
+<button type="button" class="btn btn-light rounded-pill">
+	<%= link_to"もっと見る", guides_path %>
+</button>
 
 <h1>ガイドの登録はこちら</h1>
 <br>

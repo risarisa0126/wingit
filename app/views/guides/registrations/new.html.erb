@@ -24,7 +24,7 @@
       </div>
       <div class="field">
         <%= f.label :guide_age %>
-          <%= f.text_field :guide_age, autofocus: true %>
+          <%= number_field :guide_age, nil, min: 16, max: 59, size: 1 %>
       </div>
       <div class="field">
         <%= f.label :guide_profile_image %>
@@ -36,7 +36,7 @@
       </div>
       <div class="field">
         <%= f.label :daysofweek %>
-        <%= f.date_field :daysofweek%>
+        <%= f.date_field :daysofweek %>
       </div>
 
       <div class="field">
