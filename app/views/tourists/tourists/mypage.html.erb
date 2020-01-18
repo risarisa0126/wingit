@@ -1,5 +1,99 @@
-<h1>Tourists::Tourists#mypage</h1>
-<p>Find me in app/views/tourists/tourists/mypage.html.erb</p>
+<h1>touristsmypage</h1>
+<div class="container-fluid">
+	<%= form_for @tourist, url:tourist_path, method: :patch do |f| %>
+ 	<div class="row">
+		<div class="col-sm-5">
+  			<div class="float-right">
+				<%= attachment_image_tag current_tourist, :tourist_profile_image, :fill, 1000, 1000, size: '150x150', fallback: "no_image.jpg", class: "rounded-circle"  %>
+			</div>
+		</div>
+		<div class="col-sm-7">
+			<div class="row" style="margin:30px;">
+				<div class="col-4"><p>名前</p></div>
+				<div class="col-8">
+					<%= f.text_field :tourist_lastname %><%= f.text_field :tourist_firstname %>
+				</div>
+			</div>
+			<div class="row" style="margin:30px;">
+				<div class="col-4"><p>ユーザー名</p></div>
+				<div class="col-8">
+					<%= f.text_field :tourist_username %>
+				</div>
+			</div>
+			<div class="row" style="margin:30px;">
+				<div class="col-4"><p>性別</p></div>
+				<div class="col-8">
+			        <label><%= f.radio_button :tourist_gender, 1 %>男</label>
+			        <label><%= f.radio_button :tourist_gender, 2 %>女</label>
+			        <label><%= f.radio_button :tourist_gender, 3 %>その他</label>
+				</div>
+			</div>
+			<div class="row" style="margin:30px;">
+				<div class="col-4"><p>年齢</p></div>
+				<div class="col-8">
+					<%= f.text_field :tourist_age %>
+				</div>
+			</div>
+			<div class="row" style="margin:30px;">
+				<div class="col-4"><p>自己紹介</p></div>
+				<div class="col-8">
+					<%= f.text_field :tourist_about_me %>
+				</div>
+			</div>
+			<div class="row" style="margin:30px;">
+				<div class="col-4"><p>観光日時</p></div>
+				<div class="col-8">
+					<%= f.date_field :fromdate %>-<%= f.date_field :todate %>
+				</div>
+			</div>
 
 
+
+			<div class="row" style="margin:30px;">
+				<div class="col-4"><p>母国語</p></div>
+				<div class="col-8">
+					<%= f.fields_for :tourist_native_launguages do |tourist_native_launguage| %>
+						<%= render "tourist_native_launguage_fields", f: tourist_native_launguage %>
+					<% end %>
+					<div class="links">
+						<%= link_to_add_association "+", f, :tourist_native_launguages %></div>
+				</div>
+			</div>
+			<div class="row" style="margin:30px;">
+				<div class="col-4"><p>母国</p></div>
+				<div class="col-8">
+					<%= f.fields_for :tourist_native_countries do |tourist_native_country| %>
+						<%= render "tourist_native_country_fields", f: tourist_native_country %>
+					<% end %>
+					<div class="links">
+						<%= link_to_add_association "+", f, :tourist_native_countries %></div>
+				</div>
+			</div>
+			<div class="row" style="margin:30px;">
+				<div class="col-4"><p>学習言語</p></div>
+				<div class="col-8">
+					<%= f.fields_for :tourist_practicing_launguages do |tourist_practicing_launguage| %>
+						<%= render "tourist_practicing_launguage_fields", f: tourist_practicing_launguage %>
+					<% end %>
+					<div class="links">
+						<%= link_to_add_association "+", f, :tourist_practicing_launguages %></div>
+				</div>
+			</div>
+			<div class="row" style="margin:30px;">
+				<div class="col-4"><p>観光案内地</p></div>
+				<div class="col-8">
+					<%= f.fields_for :tourist_sightseeing_places do |tourist_sightseeing_place| %>
+						<%= render "tourist_sightseeing_place_fields", f: tourist_sightseeing_place %>
+					<% end %>
+					<div class="links">
+						<%= link_to_add_association "+", f, :tourist_sightseeing_places %></div>
+				</div>
+			</div>
+			<%= f.submit "Update", class:"btn btn-warning" %>
+		</div>
+	</div>
+	<% end %>
+</div>
 <%= link_to "logout", destroy_tourist_session_path, method: :delete %>
+
+

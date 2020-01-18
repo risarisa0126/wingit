@@ -31,7 +31,7 @@
 			<div class="row" style="margin:30px;">
 				<div class="col-4"><p>年齢</p></div>
 				<div class="col-8">
-					<%= number_field :guide_age, nil, min: 16, max: 59, size: 1 %>
+					<%= f.text_field :guide_age %>
 				</div>
 			</div>
 			<div class="row" style="margin:30px;">
@@ -40,57 +40,66 @@
 					<%= f.text_field :guide_about_me %>
 				</div>
 			</div>
+
+
+
 			<div class="row" style="margin:30px;">
-				<div class="col-4"><p>案内可能日時</p></div>
+				<div class="col-4"><p>母国語</p></div>
 				<div class="col-8">
-					<%= f.date_field :daysofweek %>
+					<%= f.fields_for :guide_native_launguages do |guide_native_launguage| %>
+						<%= render "guide_native_launguage_fields", f: guide_native_launguage %>
+					<% end %>
+					<div class="links">
+						<%= link_to_add_association "+", f, :guide_native_launguages %></div>
+				</div>
+			</div>
+			<div class="row" style="margin:30px;">
+				<div class="col-4"><p>母国</p></div>
+				<div class="col-8">
+					<%= f.fields_for :guide_native_countries do |guide_native_country| %>
+						<%= render "guide_native_country_fields", f: guide_native_country %>
+					<% end %>
+					<div class="links">
+						<%= link_to_add_association "+", f, :guide_native_countries %></div>
+				</div>
+			</div>
+			<div class="row" style="margin:30px;">
+				<div class="col-4"><p>学習言語</p></div>
+				<div class="col-8">
+					<%= f.fields_for :guide_practicing_launguages do |guide_practicing_launguage| %>
+						<%= render "guide_practicing_launguage_fields", f: guide_practicing_launguage %>
+					<% end %>
+					<div class="links">
+						<%= link_to_add_association "+", f, :guide_practicing_launguages %></div>
+				</div>
+			</div>
+			<div class="row" style="margin:30px;">
+				<div class="col-4"><p>観光案内地</p></div>
+				<div class="col-8">
+					<%= f.fields_for :able_to_guide_places do |able_to_guide_place| %>
+						<%= render "able_to_guide_place_fields", f: able_to_guide_place %>
+					<% end %>
+					<div class="links">
+						<%= link_to_add_association "+", f, :able_to_guide_places %></div>
 				</div>
 			</div>
 
-			<%= f.fields_for :guide_native_launguages do |guide_native_launguage| %>
-				<div class="row" style="margin:30px;">
-					<div class="col-4"><p>母国語</p></div>
-					<div class="col-8">
-						<%= render "guide_native_launguage_fields", f: guide_native_launguage %>
+
+			<div class="row" style="margin:30px;">
+				<div class="col-4"><p>観光可能日</p></div>
+				<div class="col-8">
+					<%= f.fields_for :dayofweeks do |dayofweek| %>
+						<%= render "dayofweek_fields", f: dayofweek %>
+					<% end %>
 					<div class="links">
-						<%= link_to_add_association "+", f, :guide_native_launguages %>
-					</div>
-					</div>
+						<%= link_to_add_association "+", f, :dayofweeks %></div>
 				</div>
-			<% end %>
-			<%= f.fields_for :guide_native_countries do |guide_native_country| %>
-				<div class="row" style="margin:30px;">
-					<div class="col-4"><p>母国</p></div>
-					<div class="col-8">
-						<%= render "guide_native_country_fields", f: guide_native_country %>
-					<div class="links">
-						<%= link_to_add_association "+", f, :guide_native_countries %>
-					</div>
-					</div>
-				</div>
-			<% end %>
-			<%= f.fields_for :guide_practicing_launguages do |guide_practicing_launguage| %>
-				<div class="row" style="margin:30px;">
-					<div class="col-4"><p>学習言語</p></div>
-					<div class="col-8">
-						<%= render "guide_practicing_launguage_fields", f: guide_practicing_launguage %>
-					<div class="links">
-						<%= link_to_add_association "+", f, :guide_practicing_launguages %>
-					</div>
-					</div>
-				</div>
-			<% end %>
-			<%= f.fields_for :able_to_guide_places do |able_to_guide_place| %>
-				<div class="row" style="margin:30px;">
-					<div class="col-4"><p>観光案内地</p></div>
-					<div class="col-8">
-						<%= render "able_to_guide_place_fields", f: able_to_guide_place %>
-					<div class="links">
-						<%= link_to_add_association "+", f, :able_to_guide_places %>
-					</div>
-					</div>
-				</div>
-			<% end %>
+			</div>
+
+
+
+
+
 			<%= f.submit "Update", class:"btn btn-warning" %>
 		</div>
 	</div>

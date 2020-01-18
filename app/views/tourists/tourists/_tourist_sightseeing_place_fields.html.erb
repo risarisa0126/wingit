@@ -1,6 +1,6 @@
 <div class="nested-fields">
 
-<%= f.select :guide_place,
+<%= f.select :sightseeing_place,
 {
 三重県: "三重県" ,
 滋賀県: "滋賀県" ,
@@ -10,5 +10,7 @@
 奈良県: "奈良県" ,
 和歌山県: "和歌山県"}
 %>
+
+<%= link_to_remove_association "削除", f %>
 
 </div>
