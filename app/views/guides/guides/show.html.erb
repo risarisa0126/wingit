@@ -1,3 +1,19 @@
-<h1>Guides::Guides#show</h1>
-<p>Find me in app/views/guides/guides/show.html.erb</p>
+<div class="container-fluid">
+ 	<div class="row">
+		<div class="col">
+				<%= attachment_image_tag current_guide, :guide_profile_image, :fill, 1000, 1000, size: '150x150', class: "rounded-circle"  %>
+				<%= @guide.guide_username %>
+				<%= @guide.guide_age %>
+				<%= @guide.guide_about_me %>
+				<p>チャットする　→ チャットルーム に行く</p>
+				<p>他のguideもランダムで５人ほど表示する？</p>
 
+              <%= form_for [:guide, @room], url: rooms_path(room_id: @room.id) do |f| %>
+                <%= button_tag( class: "btn btn-primary btn-block") do %>
+                  <%= content_tag :span, "　チャットする", class: "glyphicon glyphicon-pencil" %>
+                <% end %>
+              <% end %>
+
+	 	</div>
+	</div>
+</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_07_114704) do
+ActiveRecord::Schema.define(version: 2020_01_18_055423) do
 
   create_table "able_to_guide_places", force: :cascade do |t|
     t.integer "guide_id"
@@ -31,6 +31,14 @@ ActiveRecord::Schema.define(version: 2020_01_07_114704) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "dayofweeks", force: :cascade do |t|
+    t.integer "guide_id"
+    t.datetime "day"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["guide_id"], name: "index_dayofweeks_on_guide_id"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -94,13 +102,11 @@ ActiveRecord::Schema.define(version: 2020_01_07_114704) do
     t.string "guide_age", null: false
     t.string "guide_profile_image_id", null: false
     t.text "guide_about_me", null: false
-    t.datetime "daysofweek", null: false
     t.datetime "deleted_at"
     t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["confirmation_token"], name: "index_guides_on_confirmation_token", unique: true
-    t.index ["daysofweek"], name: "index_guides_on_daysofweek"
     t.index ["email"], name: "index_guides_on_email", unique: true
     t.index ["guide_age"], name: "index_guides_on_guide_age"
     t.index ["guide_gender"], name: "index_guides_on_guide_gender"
@@ -112,6 +118,7 @@ ActiveRecord::Schema.define(version: 2020_01_07_114704) do
     t.text "body", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_guide", default: true
     t.index ["room_id"], name: "index_messages_on_room_id"
   end
 

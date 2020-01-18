@@ -70,6 +70,8 @@ gem 'bootstrap', '~> 4.1.1'
 gem 'ransack'
 gem 'pry-byebug'
 gem 'jquery-rails'
+gem 'country_select', require: 'country_select_without_sort_alphabetical'
+gem 'language_select'
 
 
 group :production do

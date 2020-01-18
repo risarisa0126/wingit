@@ -1,2 +1,9 @@
-<h1>Guides::Rooms#show</h1>
-<p>Find me in app/views/guides/rooms/show.html.erb</p>
+<p><%= "ルーム名：#{@room.id}" %></p>
+
+<input type="text" data-behavior="room_speaker" data-user="<%= current_guide.id %>" data-room="<%= @room.id %>">
+
+
+<div id="messages">
+  <%= render "guides/rooms/message", collection: @message %>
+</div>
+

@@ -27,6 +27,9 @@ Rails.application.routes.draw do
     resources :guides, :only => [:index, :show, :update, :destroy] do
       member do
         get 'mypage'
+        resources :rooms, :only => [:index, :show, :create] do
+          resources :messages, :only => [:create]
+        end
       end
     end
   end
@@ -35,6 +38,9 @@ Rails.application.routes.draw do
     resources :tourists, :only => [:index, :show, :update, :destroy] do
       member do
         get 'mypage'
+        resources :rooms, :only => [:index, :show, :create] do
+          resources :messages, :only => [:create]
+        end
       end
     end
   end
@@ -44,12 +50,8 @@ Rails.application.routes.draw do
     get 'users/index'
   end
 
-  namespace :guides do
-    get 'rooms/show'
-  end
-  namespace :tourists do
-    get 'rooms/show'
-  end
+  # Serve websocket cable requests in-process
+  mount ActionCable.server => '/cable'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

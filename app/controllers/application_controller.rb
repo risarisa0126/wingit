@@ -30,7 +30,7 @@ end
 
 def configure_permitted_parameters
       devise_parameter_sanitizer.permit(:sign_up, keys: [:guide_firstname, :guide_lastname, :guide_username,
-       :guide_gender,:guide_age, :guide_profile_image, :guide_about_me, :daysofweek,
+       :guide_gender,:guide_age, :guide_profile_image, :guide_about_me,
    	   :tourist_firstname, :tourist_lastname, :tourist_username, :tourist_gender, :tourist_age,
    	   :tourist_profile_image, :tourist_about_me, :fromdate, :todate])
 end

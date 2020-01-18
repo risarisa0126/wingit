@@ -5,15 +5,34 @@
 </div>
 
 <h1>GUIDES</h1>
+		<div class="row">
+			<% @guides.each do |guide| %>
+				<div class="card" style="width: 15rem;">
+					<%= link_to guide_path(guide.id) do %>
+		      	<%= attachment_image_tag guide, :guide_profile_image, :fill, 1000, 1000, size: '238x238', class: "rounded" %>
+		    	<% end %>
+		    	<h5 class="card-title"><%= guide.guide_username %></h5>
+		    </div>
+		  <% end %>
+		</div>
+		<button type="button" class="btn btn-light rounded-pill">
+			<%= link_to"もっと見る", guides_path %>
+		</button>
 
-<div class="card" style="width: 15rem;">
-  <img class="card-img-top" src="..." alt="カードの画像">
-  <div class="card-body">
-    <h5 class="card-title">カードのタイトル</h5>
-    <p class="card-text">以下のテキストを追加のコンテンツへの自然な導入としてサポート。 カードのコンテンツ カードのコンテンツ</p>
-    <a href="#" class="btn btn-primary">ボタン</a>
-  </div>
-</div>
+<h1>TOURISTS</h1>
+	<div class="row">
+		<% @tourists.each do |tourist| %>
+			<div class="card" style="width: 15rem;">
+				<%= link_to tourist_path(tourist.id) do %>
+	      	<%= attachment_image_tag tourist, :tourist_profile_image, :fill, 1000, 1000, size: '238x238', class: "rounded" %>
+	    	<% end %>
+	    	<h5 class="card-title"><%= tourist.tourist_username %></h5>
+	    </div>
+	  <% end %>
+	</div>
+	<button type="button" class="btn btn-light rounded-pill">
+		<%= link_to"もっと見る", tourists_path %>
+	</button>
 
 <h1>ガイドの登録はこちら</h1>
 <br>
