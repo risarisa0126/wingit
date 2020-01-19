@@ -5,7 +5,7 @@
     <% @messages.each do |m| %>
       <% if m.is_guide %>
         <div class="right-message">
-          <%= m.body %>
+          <%= render @messages %>
         </div>
       <% else %>
         <div class="left-message">
@@ -33,7 +33,19 @@
   </div>
 <% end %>
 
-<%= form_for [@room, @message] do |f| %>
-  <%= f.text_field :body %>
-  <%= f.submit "メッセージを送る"%>
+
+<input type="text" id="chat-input" data-behavior="room_speaker">
+</form>
+
+<div id="messages" data-room_id="<%= @room.id %>">
+
+
+
+</div>
+<% if guide_signed_in? %>
+	<div id="current_guide_id" data-guide_id="<%= current_guide.id %>"></div>
+	<div id="current_tourist_id" data-tourist_id="0"></div>
+<% elsif tourist_signed_in? %>
+	<div id="current_guide_id" data-guide_id="0"></div>
+	<div id="current_tourist_id" data-tourist_id="<%= current_tourist.id %>"></div>
 <% end %>

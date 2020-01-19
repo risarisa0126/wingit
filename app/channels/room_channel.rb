@@ -11,6 +11,10 @@ class RoomChannel < ApplicationCable::Channel
   end
 
   def speak(data)
-    Message.create! message: data['message'], is_guide: current_guide.id, room_id: params['room']
+    if params[:guide_id].to_i > 0
+        Message.create! body: data['message'], is_guide: true, room_id: params['room']
+    else
+        Message.create! body: data['message'], is_guide: false, room_id: params['room']
+    end
   end
 end
