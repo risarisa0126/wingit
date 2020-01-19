@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
   root 'home#top'
   get 'about' => 'home#about'
+  resources :rooms, :only => [:index, :show, :create] do
+    resources :messages, :only => [:create]
+  end
 
   devise_for :admins, controllers: {
   sessions:      'admins/sessions',
@@ -27,9 +30,6 @@ Rails.application.routes.draw do
     resources :guides, :only => [:index, :show, :update, :destroy] do
       member do
         get 'mypage'
-        resources :rooms, :only => [:index, :show, :create] do
-          resources :messages, :only => [:create]
-        end
       end
     end
   end
@@ -38,9 +38,6 @@ Rails.application.routes.draw do
     resources :tourists, :only => [:index, :show, :update, :destroy] do
       member do
         get 'mypage'
-        resources :rooms, :only => [:index, :show, :create] do
-          resources :messages, :only => [:create]
-        end
       end
     end
   end
@@ -51,7 +48,7 @@ Rails.application.routes.draw do
   end
 
   # Serve websocket cable requests in-process
-  mount ActionCable.server => '/cable'
+  # mount ActionCable.server => '/cable'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

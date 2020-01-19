@@ -1,2 +1,0 @@
-module Guides::MessagesHelper
-end

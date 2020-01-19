@@ -1,0 +1,25 @@
+<div class="container">
+
+
+<h1>チャット一覧</h1>
+	<div class="row">
+			<div class="col">
+				<% if guide_signed_in? %>
+					<% @rooms.each do |room| %>
+	    			<%= room.id %>
+					<% end %>
+
+				<% else tourist_signed_in? %>
+
+
+		  		<% @rooms.each do |room| %>
+		  		<%= link_to room_path(room.id) do %>
+		  		<%= room.id %>
+            <% end %>
+
+		  		<% end %>
+				<% end %>
+			</div>
+	</div>
+</div>
+

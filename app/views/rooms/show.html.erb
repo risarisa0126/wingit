@@ -1,0 +1,39 @@
+<h1>チャット</h1>
+<% if guide_signed_in? %>
+  <h3><%= @tourist.tourist_username %>とのチャットルーム</h3>
+  <div class="chat-field">
+    <% @messages.each do |m| %>
+      <% if m.is_guide %>
+        <div class="right-message">
+          <%= m.body %>
+        </div>
+      <% else %>
+        <div class="left-message">
+          <%= m.body %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+
+<% elsif tourist_signed_in?%>
+  <h3><%= @guide.guide_username %>とのチャットルーム</h3>
+  <div class="chat-field">
+    <% @messages.each do |m| %>
+      <% if m.is_guide %>
+        <div class="left-message">
+          <%= m.body %>
+        </div>
+      <% else %>
+        <div class="right-message">
+          <%= m.body %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
+
+<%= form_for [@room, @message] do |f| %>
+  <%= f.text_field :body %>
+  <%= f.submit "メッセージを送る"%>
+<% end %>

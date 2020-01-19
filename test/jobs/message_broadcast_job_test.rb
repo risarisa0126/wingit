@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Tourists::MessagesControllerTest < ActionDispatch::IntegrationTest
+class MessageBroadcastJobTest < ActiveJob::TestCase
   # test "the truth" do
   #   assert true
   # end

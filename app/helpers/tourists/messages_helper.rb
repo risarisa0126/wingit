@@ -1,2 +1,0 @@
-module Tourists::MessagesHelper
-end

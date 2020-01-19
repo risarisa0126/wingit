@@ -1,14 +1,17 @@
 class Tourists::TouristsController < ApplicationController
-  before_action :authenticate_tourist!, only: [:show, :mypage]
+  before_action :authenticate_tourist!, only: [:mypage]
   before_action :tourist_find, only: [:show, :mypage, :update]
 
   def index
   	@tourists = Tourist.all
+    @search = Tourist.ransack(params[:q])
+    @results = @search.result(distinct: true)
   end
 
 
   def show
-    @room = Room.new
+    @newroom = Room.new
+    @room = Room.where(guide_id: current_guide.id, tourist_id: @tourist.id)
   end
 
   def mypage
