@@ -2,7 +2,7 @@
 
 
 <h1>チャット一覧</h1>
-	<div class="row">
+	<div class="row" style="border:solid 1px;">
 			<div class="col">
 				<% if guide_signed_in? %>
 					<% @rooms.each do |room| %>
@@ -10,8 +10,6 @@
 					<% end %>
 
 				<% else tourist_signed_in? %>
-
-
 		  		<% @rooms.each do |room| %>
 		  		<%= link_to room_path(room.id) do %>
 		  		<%= room.id %>

@@ -1,4 +1,4 @@
-<h1>チャット</h1>
+<!-- <h1>チャット</h1>
 <% if guide_signed_in? %>
   <h3><%= @tourist.tourist_username %>とのチャットルーム</h3>
   <div class="chat-field">
@@ -31,17 +31,19 @@
       <% end %>
     <% end %>
   </div>
-<% end %>
+<% end %> -->
+
+<div id="messages">
+	<%= render @messages %>
+</div>
 
 
 <input type="text" id="chat-input" data-behavior="room_speaker">
-</form>
-
-<div id="messages" data-room_id="<%= @room.id %>">
 
 
 
-</div>
+
+<div id="room_id" data-room_id="<%= @room.id %>"></div>
 <% if guide_signed_in? %>
 	<div id="current_guide_id" data-guide_id="<%= current_guide.id %>"></div>
 	<div id="current_tourist_id" data-tourist_id="0"></div>

@@ -8,10 +8,10 @@ module ApplicationCable
 
     protected
     def find_verified_user
-      if verified_user = Guide.find(session["warden.user.guide.key"][0][0])
-      	verified_user
-      elsif verified_user = Tourist.find(session["warden.user.guide.key"][0][0])
-      	verified_user
+      if session["warden.user.guide.key"] != nil
+      	verified_user = Guide.find(session["warden.user.guide.key"][0][0])
+      elsif session["warden.user.tourist.key"] != nil
+      	verified_user = Tourist.find(session["warden.user.tourist.key"][0][0])
       else
 	      reject_unauthorized_connection
 	    end
