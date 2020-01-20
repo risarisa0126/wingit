@@ -3,9 +3,9 @@ class MessagesController < ApplicationController
     @room = Room.find(params[:room_id])
     @message = Message.new(message_params)
     if guide_signed_in?
-      @message.is_guide = true
+      @is_guide = true
     elsif tourist_signed_in?
-      @message.is_guide = false
+      @is_guide = false
     end
     @message.room_id = @room.id
     if @message.save

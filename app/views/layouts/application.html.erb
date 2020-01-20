@@ -15,8 +15,10 @@
   <div class="wrapper">
 
     <header>
-      <nav class="navbar navbar-light" style="background-color:#ffffff;">
-        <a class="navbar-brand" href="/">WINGIT</a>
+      <nav class="navbar navbar-fixed-top" style="background-color:#ffffff;">
+        <nav class="navbar-brand">
+          <%= link_to "WINGIT", root_path %>
+        </nav>
         <ul class="nav navbar-nav navbar-right">
           <div class="menu-trigger" href="">
             <span></span>
@@ -28,12 +30,13 @@
             <% if tourist_signed_in? %>
               <li><%= link_to "mypage", mypage_tourist_path(current_tourist.id) %></li>
               <li><%= link_to "logout", destroy_tourist_session_path, method: :delete %></li>
-              <li><%= link_to "indexpage", tourists_path %></li>
+              <li><%= link_to "indexpage", guides_path %></li>
               <li><%= link_to "showpage", tourist_path(current_tourist.id) %></li>
+              <li><%= link_to "チャットルーム一覧", rooms_path(current_tourist.id) %></li>
             <% elsif guide_signed_in?%>
               <li><%= link_to "mypage", mypage_guide_path(current_guide.id) %></li>
               <li><%= link_to "logout", destroy_guide_session_path, method: :delete %></li>
-              <li><%= link_to "indexpage", guides_path %></li>
+              <li><%= link_to "indexpage", tourists_path %></li>
               <li><%= link_to "showpage", guide_path(current_guide.id) %></li>
               <li><%= link_to "チャットルーム一覧", rooms_path(current_guide.id) %></li>
             <% else %>
@@ -43,7 +46,6 @@
           </ul>
         </side>
         <div class="overlay"></div>
-         </ul>
       </nav>
     </header>
 

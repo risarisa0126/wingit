@@ -11,7 +11,13 @@ class Tourists::TouristsController < ApplicationController
 
   def show
     @newroom = Room.new
-    @room = Room.where(guide_id: current_guide.id, tourist_id: @tourist.id)
+    if guide_signed_in?
+      @room = Room.where(tourist_id: @tourist.id, guide_id: current_guide.id)
+    elsif tourist_signed_in?
+      redirect_to root_path
+    else
+      redirect_to new_guide_registration_path
+    end
   end
 
   def mypage

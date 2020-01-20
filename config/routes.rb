@@ -8,9 +8,11 @@ Rails.application.routes.draw do
 
   devise_for :admins, controllers: {
   sessions:      'admins/sessions',
-  passwords:     'admins/passwords',
-  registrations: 'admins/registrations'
   }
+  namespace :admins do
+    get 'reviews/index'
+    get 'users/index'
+  end
 
   devise_for :guides, controllers: {
   confirmations: 'guides/confirmations',
@@ -40,11 +42,6 @@ Rails.application.routes.draw do
         get 'mypage'
       end
     end
-  end
-
-  namespace :admins do
-    get 'reviews/index'
-    get 'users/index'
   end
 
   # Serve websocket cable requests in-process
