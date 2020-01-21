@@ -1,24 +1,36 @@
-<div class="container-fluid">
+<div class="container">
  	<div class="row">
-		<div class="col">
-				<%= attachment_image_tag @tourist, :tourist_profile_image, :fill, 1000, 1000, size: '150x150', class: "rounded-circle"  %>
-				<%= @tourist.tourist_username %>
-				<%= @tourist.tourist_age %>
-				<%= @tourist.tourist_about_me %>
-				<p>チャットする　→ チャットルーム に行く</p>
-				<p>他のtouristもランダムで５人ほど表示する？</p>
+		<h1></h1>
+			<div class="col-sm-12">
+				<div class="row">
+					<div class="col-6">
+						<%= attachment_image_tag @tourist, :tourist_profile_image, :fill, 1000, 1000, size: '300x300', class: "rounded-circle"  %>
+					</div>
+					<div class="col-6">
+							<div class="type-shine">こんにちは !</div><br>
+							<div class="type-shine">
+							<% if @tourist.tourist_gender == 1 %>
+								僕は<%= @tourist.tourist_username %>です。(<%= @tourist.tourist_age %>)</div>
+							<% else %>
+								私は<%= @tourist.tourist_username %>です。(<%= @tourist.tourist_age %>)</div>
+							<% end %>
+					</div>
+				</div>
+			</div>
 
+			<div class="mx-auto"><%= @tourist.tourist_about_me %></div>
 
+			<div class="mx-auto">
 				<% if @room.exists? %>
-      		<%= link_to "チャットへ", room_path(current_guide.rooms.find_by(tourist_id: @tourist.id)) %>
-    		<% else %>
-          <%= form_for [:tourist, @newroom], url: rooms_path do |f| %>
-          	<%= f.hidden_field :tourist_id, :value => @tourist.id %>
-            <%= button_tag( class: "btn btn-primary btn-block") do %>
-              <%= content_tag :span, "　チャットする", class: "glyphicon glyphicon-pencil" %>
-            <% end %>
-          <% end %>
-        <% end %>
-	 	</div>
+					<%= link_to "チャットへ", room_path(current_guide.rooms.find_by(tourist_id: @tourist.id)), class: "btn btn-outline-danger" %>
+				<% else %>
+	    		<%= form_for [:tourist, @newroom], url: rooms_path do |f| %>
+	      		<%= f.hidden_field :tourist_id, :value => @tourist.id %>
+	        	<%= button_tag(class: "btn btn-outline-danger") do %>
+	          	<%= content_tag :span, "チャットする" %>
+	        	<% end %>
+	    		<% end %>
+	  		<% end %>
+		  </div>
 	</div>
-</div>
+

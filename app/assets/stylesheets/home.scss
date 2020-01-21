@@ -16,7 +16,7 @@
     height: 700px;
     background-image: url(brevite-KJWjsztHPPU-unsplash.jpg);
   	background-size: cover;
-  	background_position: center center;
+  	background-position: center center;
     background-repeat: no-repeat;
  	  background-attachment: fixed;
 }
@@ -33,28 +33,27 @@
 }
 
 
-.bbb{
+.button-box{
   text-align: center;
 }
 .button {
-  margin: 50px;
+  margin: 70px;
   padding: 21px 0 19px;
   border-radius: 25px;
-  text-decoration: none;
   display: inline-block;
-  width: 150px;
+  width: 200px;
   background-color: #fff;
   border: 2px solid #CCC;
   color: #999;
-  position: relative;
-  z-index: 2;
-  overflow: hidden;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all .4s;
+  transition: all .4s;
 }
 .button:hover{
   color: #fff;
-}
-.button::after {
-  background-color: #999;
-  color: #fff;
+  background-color: #CCC;
   text-decoration: none;
+
 }
