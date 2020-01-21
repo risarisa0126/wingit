@@ -2,10 +2,15 @@
 <h1>チャット</h1>
 
 
-<div class="chat-border"></div>
-<div id="messages">
-	<%= render @messages %>
-</div>
+<% if guide_signed_in? %>
+	<div id="messages" class="guide-page-messages">
+		<%= render @messages %>
+	</div>
+<% elsif %>
+	<div id="messages" class="tourist-page-messages">
+		<%= render @messages %>
+	</div>
+<% end %>
 
 
 	<input type="text" id="chat-input" data-behavior="room_speaker">

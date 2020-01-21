@@ -2,10 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.left-message{
+.guide-page-messages .guide-message {
+  text-align: right;
+}
+.guide-page-messages .tourist-message {
   text-align: left;
 }
-
-.right-message{
+.tourist-page-messages .guide-message {
+  text-align: left;
+}
+.tourist-page-messages .tourist-message {
   text-align: right;
 }

@@ -1,14 +1,5 @@
-	<% if message.is_guide %>
-		<p style="text-align: right;"><%= message.body %><br></p>
-	<% else %>
-		<p style="text-align: left;"><%= message.body %><br></p>
-  <% end %>
-
+<% if message.is_guide %>
+	<p class="guide-message"><%= message.body %></p>
 <% else %>
-	<% if message.is_guide %>
-		<p style="text-align: left;"><%= message.body %><br></p>
-	<% else %>
-		<p style="text-align: right;"><%= message.body %><br></p>
-  <% end %>
-
+	<p class="tourist-message"><%= message.body %></p>
 <% end %>
