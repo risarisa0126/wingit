@@ -1,5 +1,5 @@
 class Guides::GuidesController < ApplicationController
-  before_action :authenticate_guide!, only: [:show, :mypage]
+  before_action :authenticate_guide!, only: [:mypage]
   before_action :guide_find, only: [:show, :mypage, :update]
 
   def index
@@ -10,7 +10,14 @@ class Guides::GuidesController < ApplicationController
 
 
   def show
-    @room = Room.new
+    @newroom = Room.new
+    if tourist_signed_in?
+      @room = Room.where(guide_id: @guide.id, tourist_id: current_tourist.id)
+    elsif guide_signed_in?
+      redirect_to root_path
+    else
+      redirect_to new_tourist_registration_path
+    end
   end
 
   def mypage

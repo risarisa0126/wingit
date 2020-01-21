@@ -1,14 +1,23 @@
 class Tourists::TouristsController < ApplicationController
-  before_action :authenticate_tourist!, only: [:show, :mypage]
+  before_action :authenticate_tourist!, only: [:mypage]
   before_action :tourist_find, only: [:show, :mypage, :update]
 
   def index
   	@tourists = Tourist.all
+    @search = Tourist.ransack(params[:q])
+    @results = @search.result(distinct: true)
   end
 
 
   def show
-    @room = Room.new
+    @newroom = Room.new
+    if guide_signed_in?
+      @room = Room.where(tourist_id: @tourist.id, guide_id: current_guide.id)
+    elsif tourist_signed_in?
+      redirect_to root_path
+    else
+      redirect_to new_guide_registration_path
+    end
   end
 
   def mypage

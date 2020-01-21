@@ -72,7 +72,7 @@ gem 'pry-byebug'
 gem 'jquery-rails'
 gem 'country_select', require: 'country_select_without_sort_alphabetical'
 gem 'language_select'
-
+gem 'rails-i18n'
 
 group :production do
   gem 'mysql2'

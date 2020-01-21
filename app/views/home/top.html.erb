@@ -4,6 +4,9 @@
 	</div>
 </div>
 
+
+<br><br><br><br><br><br><br><br>
+
 <h1>GUIDES</h1>
 		<div class="row">
 			<% @guides.each do |guide| %>
@@ -15,9 +18,10 @@
 		    </div>
 		  <% end %>
 		</div>
-		<button type="button" class="btn btn-light rounded-pill">
-			<%= link_to"もっと見る", guides_path %>
-		</button>
+		<div class="bbb">
+			<%= link_to("See more", guides_path, {class: "button"}) %>
+		</div>
+
 
 <h1>TOURISTS</h1>
 	<div class="row">
@@ -35,17 +39,6 @@
 	</button>
 
 <h1>ガイドの登録はこちら</h1>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<%= link_to new_tourist_registration_path, class: "btn-warning btn" do %>
+          <i class="glyphicon glyphicon-user text-danger" style="font-weight: bold; font-size: 20px;">登録する</i>
+          <% end %>s

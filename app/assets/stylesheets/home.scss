@@ -29,5 +29,32 @@
 }
 
 .card{
-  margin-left: 30px;
+  margin: auto;
+}
+
+
+.bbb{
+  text-align: center;
+}
+.button {
+  margin: 50px;
+  padding: 21px 0 19px;
+  border-radius: 25px;
+  text-decoration: none;
+  display: inline-block;
+  width: 150px;
+  background-color: #fff;
+  border: 2px solid #CCC;
+  color: #999;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+.button:hover{
+  color: #fff;
+}
+.button::after {
+  background-color: #999;
+  color: #fff;
+  text-decoration: none;
 }

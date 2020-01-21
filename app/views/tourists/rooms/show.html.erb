@@ -1,9 +1,0 @@
-<p><%= "ルーム名：#{@room.id}" %></p>
-
-<input type="text" data-behavior="room_speaker" data-user="<%= current_tourist.id %>" data-room="<%= @room.id %>">
-
-
-<div id="messages">
-  <%= render "tourists/rooms/message", collection: @message %>
-</div>
-

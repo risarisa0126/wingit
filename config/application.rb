@@ -17,3 +17,11 @@ module Wingit
     # the framework and any gems in your application.
   end
 end
+
+module RailsI18n
+  class Application < Rails::Application
+    config.i18n.available_locales = %i(ja en zh)
+    config.i18n.enforce_available_locales = true
+    config.i18n.default_locale = :ja
+  end
+end
