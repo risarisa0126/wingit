@@ -1,31 +1,105 @@
 <div class="container">
  	<div class="row">
-		<h1></h1>
-			<div class="col-sm-12">
+ 		<h1></h1>
+			<div class="col-12">
 				<div class="row">
 					<div class="col-6">
 						<%= attachment_image_tag @guide, :guide_profile_image, :fill, 1000, 1000, size: '300x300', class: "rounded-circle"  %>
 					</div>
 					<div class="col-6">
 							<div class="type-shine">Hello guys !</div><br>
-							<div class="type-shine">I'm <%= @guide.guide_username %>.(<%= @tourist.tourist_age %>)</div>
+							<div class="type-shine">I'm <%= @guide.guide_username %>.(<%= @guide.guide_age %>)</div>
 					</div>
 				</div>
 			</div>
+		</div>
 
-			<div class="mx-auto"><%= @guide.guide_about_me %>
 
-			<div class="mx-auto">
+		<div class="box">
+			<div class="content" style="color: #999; font-size: 20px;">
+			<%= @guide.guide_about_me %>
+		</div>
+	</div>
+
+	<div class="col-12">
+		<div class="row rowbox">
+			<div class="col-6 text-center">
+				<p>Nationality</p>
+			</div>
+			<div class="col-6">
+				<% @guide.guide_native_countries.each do |country| %>
+					<%= country.guide_country %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+	<div class="col-12">
+		<div class="row rowbox">
+			<div class="col-6 text-center">
+				<p>Native Langage</p>
+			</div>
+			<div class="col-6">
+				<% @guide.guide_native_launguages.each do |language| %>
+					<%= language.guide_language %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+	<div class="col-12">
+		<div class="row rowbox">
+			<div class="col-6 text-center">
+				<p>Plactice language</p>
+			</div>
+			<div class="col-6">
+				<% @guide.guide_practicing_launguages.each do |practicing| %>
+					<%= practicing.guide_practicing %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+	<div class="col-12">
+		<div class="row rowbox">
+			<div class="col-6 text-center">
+				<p>Guide places</p>
+			</div>
+			<div class="col-6">
+				<% @guide.able_to_guide_places.each do |place| %>
+					<%= place.guide_place %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+	<div class="col-12">
+		<div class="row rowbox">
+			<div class="col-6 text-center">
+				<p>Days</p>
+			</div>
+			<div class="col-6">
+				<% @guide.dayofweeks.each do |days| %>
+					<%= days.day.strftime("%A") %> /
+				<% end %>
+			</div>
+		</div>
+	</div>
+
+	<div class="box">
+		<div class="content">
+			<% if tourist_signed_in? %>
 				<% if @room.exists? %>
 					<%= link_to "チャットへ", room_path(current_tourist.rooms.find_by(guide_id: @guide.id)), class: "btn btn-outline-danger" %>
 				<% else %>
-	    		<%= form_for [:guide, @newroom], url: rooms_path do |f| %>
-	      		<%= f.hidden_field :guide_id, :value => @guide.id %>
-	        	<%= button_tag(class: "btn btn-outline-danger") do %>
-	          	<%= content_tag :span, "チャットする" %>
-	        	<% end %>
-	    		<% end %>
-	  		<% end %>
-		  </div>
+		  		<%= form_for [:guide, @newroom], url: rooms_path do |f| %>
+		    		<%= f.hidden_field :guide_id, :value => @guide.id %>
+		      	<%= button_tag(class: "btn btn-outline-danger") do %>
+		        	<%= content_tag :span, "チャットする" %>
+		      	<% end %>
+		  		<% end %>
+				<% end %>
+			<% elsif current_guide %>
+				<%= link_to "チャットルーム一覧", rooms_path(current_guide.id) %>
+			<% end %>
+		</div>
 	</div>
+
 </div>
+

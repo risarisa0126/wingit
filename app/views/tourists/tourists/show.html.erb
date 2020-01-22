@@ -1,26 +1,80 @@
 <div class="container">
  	<div class="row">
-		<h1></h1>
-			<div class="col-sm-12">
+ 		<h1></h1>
+			<div class="col-12">
 				<div class="row">
 					<div class="col-6">
 						<%= attachment_image_tag @tourist, :tourist_profile_image, :fill, 1000, 1000, size: '300x300', class: "rounded-circle"  %>
 					</div>
 					<div class="col-6">
-							<div class="type-shine">こんにちは !</div><br>
-							<div class="type-shine">
-							<% if @tourist.tourist_gender == 1 %>
-								僕は<%= @tourist.tourist_username %>です。(<%= @tourist.tourist_age %>)</div>
-							<% else %>
-								私は<%= @tourist.tourist_username %>です。(<%= @tourist.tourist_age %>)</div>
-							<% end %>
+							<div class="type-shine">Hello guys !</div><br>
+							<div class="type-shine">I'm <%= @tourist.tourist_username %>.(<%= @tourist.tourist_age %>)</div>
+							<br><br>
+							from <%= @tourist.fromdate.strftime("%Y年%-m月%-d日 %a") %> to <%= @tourist.todate.strftime("%Y年%-m月%-d日 %a") %>
 					</div>
 				</div>
 			</div>
+		</div>
 
-			<div class="mx-auto"><%= @tourist.tourist_about_me %></div>
 
-			<div class="mx-auto">
+		<div class="box">
+			<div class="content" style="color: #999; font-size: 20px;">
+			<%= @tourist.tourist_about_me %>
+		</div>
+	</div>
+
+	<div class="col-12">
+		<div class="row rowbox">
+			<div class="col-6 text-center">
+				<p>Nationality</p>
+			</div>
+			<div class="col-6">
+				<% @tourist.tourist_native_countries.each do |country| %>
+					<%= country.tourist_country %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+	<div class="col-12">
+		<div class="row rowbox">
+			<div class="col-6 text-center">
+				<p>Native Langage</p>
+			</div>
+			<div class="col-6">
+				<% @tourist.tourist_native_launguages.each do |language| %>
+					<%= language.tourist_language %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+	<div class="col-12">
+		<div class="row rowbox">
+			<div class="col-6 text-center">
+				<p>Plactice language</p>
+			</div>
+			<div class="col-6">
+				<% @tourist.tourist_practicing_launguages.each do |practicing| %>
+					<%= practicing.tourist_practicing %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+	<div class="col-12">
+		<div class="row rowbox">
+			<div class="col-6 text-center">
+				<p>tourist places</p>
+			</div>
+			<div class="col-6">
+				<% @tourist.tourist_sightseeing_places.each do |place| %>
+					<%= place.sightseeing_place %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+
+	<div class="box">
+		<div class="content">
+			<% if guide_signed_in? %>
 				<% if @room.exists? %>
 					<%= link_to "チャットへ", room_path(current_guide.rooms.find_by(tourist_id: @tourist.id)), class: "btn btn-outline-danger" %>
 				<% else %>
@@ -31,6 +85,13 @@
 	        	<% end %>
 	    		<% end %>
 	  		<% end %>
-		  </div>
+	  	<% elsif current_tourist %>
+	  		<% @room.each do |room| %>
+	  			<%= room.id %>
+	  			<% end %>
+	  	<% end %>
+		</div>
 	</div>
+
+</div>
 

@@ -1,11 +1,11 @@
 class Guides::GuidesController < ApplicationController
   before_action :authenticate_guide!, only: [:mypage]
+  before_action :correct_guide, only: [:mypage, :update]
   before_action :guide_find, only: [:show, :mypage, :update]
 
   def index
-  	@guides = Guide.all
-    @search = Guide.ransack(params[:q])
-    @results = @search.result(distinct: true)
+    @q = Guide.ransack(params[:q])
+    @guides = @q.result(distinct: true)
   end
 
 
@@ -13,6 +13,8 @@ class Guides::GuidesController < ApplicationController
     @newroom = Room.new
     if tourist_signed_in?
       @room = Room.where(guide_id: @guide.id, tourist_id: current_tourist.id)
+    elsif current_guide
+      @room = Room.all
     elsif guide_signed_in?
       redirect_to root_path
     else
@@ -39,6 +41,13 @@ class Guides::GuidesController < ApplicationController
 
   def guide_find
   	@guide = Guide.find(params[:id])
+  end
+
+  def correct_guide
+    @guide = Guide.find(params[:id])
+    unless @guide == current_guide
+      redirect_to mypage_guide_path
+    end
   end
 
   def guide_params

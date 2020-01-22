@@ -29,7 +29,7 @@ class Tourist < ApplicationRecord
   validates :tourist_gender, presence: true
   validates :tourist_age, presence: true
   validates :tourist_profile_image, presence: true
-  validates :tourist_about_me, presence: true, length: { maximum: 300 }
+  validates :tourist_about_me, presence: true, length: { maximum: 1000 }
   validates :fromdate, presence: true
   validates :todate, presence: true
 
