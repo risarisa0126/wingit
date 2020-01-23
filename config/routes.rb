@@ -2,12 +2,17 @@ Rails.application.routes.draw do
 
   root 'home#top'
   get 'about' => 'home#about'
+  resources :rooms, :only => [:index, :show, :create] do
+    resources :messages, :only => [:create]
+  end
 
   devise_for :admins, controllers: {
   sessions:      'admins/sessions',
-  passwords:     'admins/passwords',
-  registrations: 'admins/registrations'
   }
+  namespace :admins do
+    get 'reviews/index'
+    get 'users/index'
+  end
 
   devise_for :guides, controllers: {
   confirmations: 'guides/confirmations',
@@ -39,17 +44,12 @@ Rails.application.routes.draw do
     end
   end
 
-  namespace :admins do
-    get 'reviews/index'
-    get 'users/index'
-  end
+  # Serve websocket cable requests in-process
+  mount ActionCable.server => '/cable'
 
-  namespace :guides do
-    get 'rooms/show'
-  end
-  namespace :tourists do
-    get 'rooms/show'
-  end
+  # scope '(:locale)', locale: /#{I18n.available_locales.map(&:to_s).join('|')}/ do
+  #   resources :posts, param: :slug
+  # end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

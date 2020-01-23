@@ -2,8 +2,58 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.main-top{
-	width: 300px;
-    height: 500px;
-	background-color: red;
+
+.top{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+  background-color: #fffafa;
+}
+
+.top-image{
+  height: 700px;
+  background-image: url(brevite-KJWjsztHPPU-unsplash.jpg);
+	background-size: cover;
+	background-position: center center;
+  background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+.top-logo{
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+  color: #fff;
+  letter-spacing: 1.0rem;
+  font-size :200px;
+}
+
+.card{
+  margin: auto;
+}
+
+
+.button-box{
+  text-align: center;
+}
+.button {
+  margin: 70px;
+  padding: 21px 0 19px;
+  border-radius: 25px;
+  display: inline-block;
+  width: 200px;
+  background-color: #fff;
+  border: 2px solid #CCC;
+  color: #999;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all .4s;
+  transition: all .4s;
+}
+.button:hover{
+  color: #fff;
+  background-color: #CCC;
+  text-decoration: none;
+
 }

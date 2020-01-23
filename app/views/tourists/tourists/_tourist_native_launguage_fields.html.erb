@@ -1,0 +1,16 @@
+<div class="nested-fields">
+
+ <%= f.select :tourist_language,
+{
+Japanese: "Japanese" ,
+English: "English" ,
+Mandarin: "Mandarin" ,
+Cantonese: "Cantonese" ,
+Korean: "Korean" ,
+Spanish: "Spanish" ,
+Italiano: "Italiano" ,
+French: "French"}, :include_blank => true
+%>
+
+ <%= link_to_remove_association "削除", f %>
+</div>

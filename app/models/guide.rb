@@ -2,7 +2,8 @@ class Guide < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :confirmable
+         :recoverable, :rememberable, :validatable
+         # :confirmable
 
 
 
@@ -11,6 +12,14 @@ class Guide < ApplicationRecord
   has_many :guide_native_launguages
   has_many :guide_practicing_launguages
   has_many :able_to_guide_places
+  has_many :dayofweeks
+
+  accepts_nested_attributes_for :guide_native_countries, allow_destroy: true
+  accepts_nested_attributes_for :guide_native_launguages, allow_destroy: true
+  accepts_nested_attributes_for :guide_practicing_launguages, allow_destroy: true
+  accepts_nested_attributes_for :dayofweeks, allow_destroy: true
+  accepts_nested_attributes_for :able_to_guide_places, allow_destroy: true
+
   has_many :favorites
   has_many :reviews
   has_many :rooms
@@ -26,7 +35,5 @@ class Guide < ApplicationRecord
   validates :guide_gender, presence: true
   validates :guide_age, presence: true
   validates :guide_profile_image, presence: true
-  validates :guide_about_me, presence: true, length: { maximum: 300 }
-  validates :daysofweek, presence: true
-
+  validates :guide_about_me, presence: true, length: { maximum: 1000 }
 end

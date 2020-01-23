@@ -1,0 +1,16 @@
+<div class="nested-fields">
+
+<%= f.select :tourist_country,
+{
+US: "US" ,
+UK: "UK" ,
+China: "China" ,
+Taiwan: "Taiwan" ,
+HongKong: "HongKong" ,
+Korea: "Korea" ,
+Spain: "Spain" ,
+Italy: "Italy"}, :include_blank => true
+%>
+    <%= link_to_remove_association "削除", f %>
+</div>
+

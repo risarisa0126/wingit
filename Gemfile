@@ -39,6 +39,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry-byebug'
 end
 
 group :development do
@@ -68,9 +69,10 @@ gem "refile-mini_magick"
 gem 'kaminari'
 gem 'bootstrap', '~> 4.3.1'
 gem 'ransack'
-gem 'pry-byebug'
 gem 'jquery-rails'
-
+gem 'country_select', require: 'country_select_without_sort_alphabetical'
+gem 'language_select'
+gem 'rails-i18n'
 
 group :production do
   gem 'mysql2'
