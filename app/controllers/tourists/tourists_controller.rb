@@ -23,10 +23,10 @@ class Tourists::TouristsController < ApplicationController
   end
 
   def mypage
-  	@tourist.tourist_native_launguages.build
-    @tourist.tourist_native_countries.build
-    @tourist.tourist_practicing_launguages.build
-    @tourist.tourist_sightseeing_places.build
+  	# @tourist.tourist_native_launguages.build
+   #  @tourist.tourist_native_countries.build
+   #  @tourist.tourist_practicing_launguages.build
+   #  @tourist.tourist_sightseeing_places.build
   end
 
   def update

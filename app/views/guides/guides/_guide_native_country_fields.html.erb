@@ -1,7 +1,18 @@
 <div class="nested-fields">
 
- <%= f.country_select :guide_country %>
+ <%= f.select :guide_country,
+{
+日本: "日本" ,
+アメリカ: "アメリカ" ,
+イギリス: "イギリス" ,
+中国: "中国" ,
+台湾: "台湾" ,
+香港: "香港" ,
+韓国: "韓国" ,
+スペイン: "スペイン" ,
+イタリア: "イタリア"}, :include_blank => true
+%>
 
-    <%= link_to_remove_association "削除", f %>
+ <%= link_to_remove_association "削除", f %>
 </div>
 

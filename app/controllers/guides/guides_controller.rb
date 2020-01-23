@@ -23,11 +23,11 @@ class Guides::GuidesController < ApplicationController
   end
 
   def mypage
-    @guide.able_to_guide_places.build
-  	@guide.guide_native_launguages.build
-    @guide.guide_native_countries.build
-    @guide.guide_practicing_launguages.build
-    @guide.dayofweeks.build
+   #  @guide.able_to_guide_places.build
+  	# @guide.guide_native_launguages.build
+   #  @guide.guide_native_countries.build
+   #  @guide.guide_practicing_launguages.build
+   #  @guide.dayofweeks.build
   end
 
   def update
@@ -52,7 +52,7 @@ class Guides::GuidesController < ApplicationController
 
   def guide_params
   params.require(:guide).permit(:id, :guide_lastname, :guide_firstname, :guide_username, :guide_gender, :guide_age, :guide_about_me,
-  								able_to_guide_placess_attributes: [:id, :guide_place, :_destroy],
+  								able_to_guide_places_attributes: [:id, :guide_place, :_destroy],
                   guide_native_launguages_attributes: [:id, :guide_language, :_destroy],
   								guide_native_countries_attributes: [:id, :guide_country, :_destroy],
   								guide_practicing_launguages_attributes: [:id, :guide_practicing, :_destroy],

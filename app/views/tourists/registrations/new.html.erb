@@ -16,10 +16,12 @@
         <%= f.text_field :tourist_username, autofocus: true %>
       </div>
       <div class="field">
-        <%= f.label :tourist_gender %>
-          <label><%= f.radio_button :tourist_gender, 1 %>male</label>
-          <label><%= f.radio_button :tourist_gender, 2 %>female</label>
-          <label><%= f.radio_button :tourist_gender, 3 %>other</label>
+        <label><%= f.label :male %></label>
+          <%= f.radio_button :tourist_gender, "male" %>
+        <label><%= f.label :female %></label>
+          <%= f.radio_button :tourist_gender, "female" %>
+        <label><%= f.label :other %></label>
+          <%= f.radio_button :tourist_gender, "other" %>
       </div>
       <div class="field">
         <%= f.label :tourist_age %>
