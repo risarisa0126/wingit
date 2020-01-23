@@ -1,6 +1,6 @@
-<h1>Guidesmypage</h1>
+<h1>mypage</h1>
+
 <div class="container-fluid">
-	<%= form_for @guide, url:guide_path, method: :patch do |f| %>
  	<div class="row">
 		<div class="col-sm-5">
   			<div class="float-right">
@@ -8,102 +8,165 @@
 			</div>
 		</div>
 		<div class="col-sm-7">
-			<div class="row" style="margin:30px;">
-				<div class="col-4"><p>名前</p></div>
-				<div class="col-8">
-					<%= f.text_field :guide_lastname %><%= f.text_field :guide_firstname %>
-				</div>
+			<div class="row modalbox">
+				<div class="col-4">Name</div>
+				<div class="col-8"><%= @guide.guide_username %>.(<%= @guide.guide_age %>)</div>
 			</div>
-			<div class="row" style="margin:30px;">
-				<div class="col-4"><p>ユーザー名</p></div>
-				<div class="col-8">
-					<%= f.text_field :guide_username %>
-				</div>
+			<div class="row modalbox">
+				<div class="col-4">Gender</div>
+				<div class="col-8"><%= @guide.guide_gender %></div>
 			</div>
-			<div class="row" style="margin:30px;">
-				<div class="col-4"><p>性別</p></div>
-				<div class="col-8">
-			        <label><%= f.radio_button :guide_gender, 1 %>男</label>
-			        <label><%= f.radio_button :guide_gender, 2 %>女</label>
-			        <label><%= f.radio_button :guide_gender, 3 %>その他</label>
-				</div>
+			<div class="row modalbox">
+				<div class="col-4">About me</div>
+				<div class="col-8"><%= @guide.guide_about_me %></div>
 			</div>
-			<div class="row" style="margin:30px;">
-				<div class="col-4"><p>年齢</p></div>
+			<div class="row modalbox">
+				<div class="col-4">Nationality</div>
 				<div class="col-8">
-					<%= f.text_field :guide_age %>
-				</div>
-			</div>
-			<div class="row" style="margin:30px;">
-				<div class="col-4"><p>自己紹介</p></div>
-				<div class="col-8">
-					<%= f.text_field :guide_about_me %>
-				</div>
-			</div>
-
-
-
-			<div class="row" style="margin:30px;">
-				<div class="col-4"><p>母国語</p></div>
-				<div class="col-8">
-					<%= f.fields_for :guide_native_launguages do |guide_native_launguage| %>
-						<%= render "guide_native_launguage_fields", f: guide_native_launguage %>
+					<% @guide.guide_native_countries.each do |country| %>
+						<%= country.guide_country %>
 					<% end %>
-					<div class="links">
-						<%= link_to_add_association "+", f, :guide_native_launguages %></div>
 				</div>
 			</div>
-			<div class="row" style="margin:30px;">
-				<div class="col-4"><p>母国</p></div>
+			<div class="row modalbox">
+				<div class="col-4">Native language</div>
 				<div class="col-8">
-					<%= f.fields_for :guide_native_countries do |guide_native_country| %>
-						<%= render "guide_native_country_fields", f: guide_native_country %>
+					<% @guide.guide_native_launguages.each do |language| %>
+						<%= language.guide_language %>
 					<% end %>
-					<div class="links">
-						<%= link_to_add_association "+", f, :guide_native_countries %></div>
 				</div>
 			</div>
-			<div class="row" style="margin:30px;">
-				<div class="col-4"><p>学習言語</p></div>
+			<div class="row modalbox">
+				<div class="col-4">Placticing language</div>
 				<div class="col-8">
-					<%= f.fields_for :guide_practicing_launguages do |guide_practicing_launguage| %>
-						<%= render "guide_practicing_launguage_fields", f: guide_practicing_launguage %>
+					<% @guide.guide_practicing_launguages.each do |practicing| %>
+						<%= practicing.guide_practicing %>
 					<% end %>
-					<div class="links">
-						<%= link_to_add_association "+", f, :guide_practicing_launguages %></div>
 				</div>
 			</div>
-			<div class="row" style="margin:30px;">
-				<div class="col-4"><p>観光案内地</p></div>
+			<div class="row modalbox">
+				<div class="col-4">Able to guide</div>
 				<div class="col-8">
-					<%= f.fields_for :able_to_guide_places do |able_to_guide_place| %>
-						<%= render "able_to_guide_place_fields", f: able_to_guide_place %>
+					<% @guide.able_to_guide_places.each do |place| %>
+						<%= place.guide_place %>
 					<% end %>
-					<div class="links">
-						<%= link_to_add_association "+", f, :able_to_guide_places %></div>
 				</div>
 			</div>
-
-
-			<div class="row" style="margin:30px;">
-				<div class="col-4"><p>観光可能日</p></div>
+			<div class="row modalbox">
+				<div class="col-4">Able to guide days</div>
 				<div class="col-8">
-					<%= f.fields_for :dayofweeks do |dayofweek| %>
-						<%= render "dayofweek_fields", f: dayofweek %>
+					<% @guide.dayofweeks.each do |days| %>
+						<%= days.day.strftime("%Y年%-m月%-d日 %a") %>
 					<% end %>
-					<div class="links">
-						<%= link_to_add_association "+", f, :dayofweeks %></div>
 				</div>
 			</div>
-
-
-
-
-
-			<%= f.submit "Update", class:"btn btn-warning" %>
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">edit</button>
 		</div>
 	</div>
-	<% end %>
 </div>
-<%= link_to "logout", destroy_guide_session_path, method: :delete %>
 
+
+
+<!-- モーダルの設定 -->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">edit</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+					<%= form_for @guide, url:guide_path, method: :patch do |f| %>
+							<div class="row modalbox" >
+								<%= f.attachment_field :guide_profile_image %>
+							</div>
+							<div class="row modalbox" >
+								<div class="col-4">名前</div>
+								<div class="col-8"><%= f.text_field :guide_lastname %><%= f.text_field :guide_firstname %></div>
+							</div>
+							<div class="row modalbox" >
+								<div class="col-4">ユーザーネーム</div>
+								<div class="col-8"><%= f.text_field :guide_username %></div>
+							</div>
+							<div class="row modalbox">
+								<div class="col-4">性別</div>
+								<div class="col-8">
+							    <label><%= f.label :男 %></label>
+					          <%= f.radio_button :guide_gender, "男" %>
+					        <label><%= f.label :女 %></label>
+					          <%= f.radio_button :guide_gender, "女" %>
+					        <label><%= f.label :その他 %></label>
+					          <%= f.radio_button :guide_gender, "その他" %>
+								</div>
+							</div>
+							<div class="row modalbox">
+								<div class="col-4">年齢</div>
+								<div class="col-8"><%= f.text_field :guide_age %></div>
+							</div>
+							<div class="row modalbox">
+								<div class="col-4">プロフィール</div>
+								<div class="col-8"><%= f.text_field :guide_about_me %></div>
+							</div>
+							<div class="row modalbox">
+								<div class="col-4">母国</div>
+								<div class="col-8">
+									<%= f.fields_for :guide_native_countries do |guide_native_country| %>
+										<%= render "guide_native_country_fields", f: guide_native_country %>
+									<% end %>
+									<div class="links">
+										<%= link_to_add_association "+", f, :guide_native_countries %></div>
+								</div>
+							</div>
+							<div class="row modalbox">
+								<div class="col-4">母国語</div>
+								<div class="col-8">
+									<%= f.fields_for :guide_native_launguages do |guide_native_launguage| %>
+										<%= render "guide_native_launguage_fields", f: guide_native_launguage %>
+									<% end %>
+									<div class="links">
+										<%= link_to_add_association "+", f, :guide_native_launguages %></div>
+								</div>
+							</div>
+							<div class="row modalbox">
+								<div class="col-4">学習言語</div>
+								<div class="col-8">
+									<%= f.fields_for :guide_practicing_launguages do |guide_practicing_launguage| %>
+										<%= render "guide_practicing_launguage_fields", f: guide_practicing_launguage %>
+									<% end %>
+									<div class="links">
+										<%= link_to_add_association "+", f, :guide_practicing_launguages %></div>
+								</div>
+							</div>
+							<div class="row modalbox">
+								<div class="col-4">観光案内地</div>
+								<div class="col-8">
+									<%= f.fields_for :able_to_guide_places do |able_to_guide_place| %>
+										<%= render "able_to_guide_place_fields", f: able_to_guide_place %>
+									<% end %>
+									<div class="links">
+										<%= link_to_add_association "+", f, :able_to_guide_places %></div>
+								</div>
+							</div>
+							<div class="row modalbox">
+								<div class="col-4">観光可能日</div>
+								<div class="col-8">
+									<%= f.fields_for :dayofweeks do |dayofweek| %>
+										<%= render "dayofweek_fields", f: dayofweek %>
+									<% end %>
+									<div class="links">
+										<%= link_to_add_association "+", f, :dayofweeks %></div>
+								</div>
+							</div>
+							<%= f.submit "Update", class:"btn btn-warning" %>
+						</div>
+					</div>
+					<% end %>
+				</div>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">close</button>
+      </div>
+    </div>
+  </div>
+</div>

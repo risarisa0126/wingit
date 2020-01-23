@@ -1,26 +1,23 @@
-
-<h1>チャット</h1>
-
-
-<% if guide_signed_in? %>
-	<div id="messages" class="guide-page-messages">
-		<%= render @messages %>
-	</div>
-<% elsif %>
-	<div id="messages" class="tourist-page-messages">
-		<%= render @messages %>
-	</div>
-<% end %>
-
-
-	<input type="text" id="chat-input" data-behavior="room_speaker">
-
-
-<div id="room_id" data-room_id="<%= @room.id %>"></div>
-<% if guide_signed_in? %>
-	<div id="current_guide_id" data-guide_id="<%= current_guide.id %>"></div>
-	<div id="current_tourist_id" data-tourist_id="0"></div>
-<% elsif tourist_signed_in? %>
-	<div id="current_guide_id" data-guide_id="0"></div>
-	<div id="current_tourist_id" data-tourist_id="<%= current_tourist.id %>"></div>
-<% end %>
+<div class="container">
+	<h1>チャット</h1>
+		<% if guide_signed_in? %>
+			<div id="messages" class="guide-page-messages">
+				<%= render @messages %>
+			</div>
+		<% elsif %>
+			<div id="messages" class="tourist-page-messages">
+				<%= render @messages %>
+			</div>
+		<% end %>
+		<div id="bms_send">
+			<div id="bms_send_message"><input type="text" id="chat-input" data-behavior="room_speaker"></div>
+		</div>
+		<div id="room_id" data-room_id="<%= @room.id %>"></div>
+			<% if guide_signed_in? %>
+				<div id="current_guide_id" data-guide_id="<%= current_guide.id %>"></div>
+				<div id="current_tourist_id" data-tourist_id="0"></div>
+			<% elsif tourist_signed_in? %>
+				<div id="current_guide_id" data-guide_id="0"></div>
+				<div id="current_tourist_id" data-tourist_id="<%= current_tourist.id %>"></div>
+			<% end %>
+		</div>

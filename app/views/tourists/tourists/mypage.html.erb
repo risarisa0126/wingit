@@ -1,6 +1,6 @@
-<h1>touristsmypage</h1>
+<h1>mypage</h1>
+
 <div class="container-fluid">
-	<%= form_for @tourist, url:tourist_path, method: :patch do |f| %>
  	<div class="row">
 		<div class="col-sm-5">
   			<div class="float-right">
@@ -8,92 +8,153 @@
 			</div>
 		</div>
 		<div class="col-sm-7">
-			<div class="row" style="margin:30px;">
-				<div class="col-4"><p>名前</p></div>
-				<div class="col-8">
-					<%= f.text_field :tourist_lastname %><%= f.text_field :tourist_firstname %>
-				</div>
+			<div class="row modalbox">
+				<div class="col-4">Name</div>
+				<div class="col-8"><%= @tourist.tourist_username %>.(<%= @tourist.tourist_age %>)</div>
 			</div>
-			<div class="row" style="margin:30px;">
-				<div class="col-4"><p>ユーザー名</p></div>
-				<div class="col-8">
-					<%= f.text_field :tourist_username %>
-				</div>
+			<div class="row modalbox">
+				<div class="col-4">Gender</div>
+				<div class="col-8"><%= @tourist.tourist_gender %></div>
 			</div>
-			<div class="row" style="margin:30px;">
-				<div class="col-4"><p>性別</p></div>
-				<div class="col-8">
-			        <label><%= f.radio_button :tourist_gender, 1 %>男</label>
-			        <label><%= f.radio_button :tourist_gender, 2 %>女</label>
-			        <label><%= f.radio_button :tourist_gender, 3 %>その他</label>
-				</div>
+			<div class="row modalbox">
+				<div class="col-4">About me</div>
+				<div class="col-8"><%= @tourist.tourist_about_me %></div>
 			</div>
-			<div class="row" style="margin:30px;">
-				<div class="col-4"><p>年齢</p></div>
-				<div class="col-8">
-					<%= f.text_field :tourist_age %>
-				</div>
+			<div class="row modalbox">
+				<div class="col-4">travel date</div>
+				<div class="col-8">from <%= @tourist.fromdate.strftime("%Y年%-m月%-d日 %a") %> to <%= @tourist.todate.strftime("%Y年%-m月%-d日 %a") %></div>
 			</div>
-			<div class="row" style="margin:30px;">
-				<div class="col-4"><p>自己紹介</p></div>
+			<div class="row modalbox">
+				<div class="col-4">Nationality</div>
 				<div class="col-8">
-					<%= f.text_field :tourist_about_me %>
-				</div>
-			</div>
-			<div class="row" style="margin:30px;">
-				<div class="col-4"><p>観光日時</p></div>
-				<div class="col-8">
-					<%= f.date_field :fromdate %>-<%= f.date_field :todate %>
-				</div>
-			</div>
-
-
-
-			<div class="row" style="margin:30px;">
-				<div class="col-4"><p>母国語</p></div>
-				<div class="col-8">
-					<%= f.fields_for :tourist_native_launguages do |tourist_native_launguage| %>
-						<%= render "tourist_native_launguage_fields", f: tourist_native_launguage %>
+					<% @tourist.tourist_native_countries.each do |country| %>
+						<%= country.tourist_country %>
 					<% end %>
-					<div class="links">
-						<%= link_to_add_association "+", f, :tourist_native_launguages %></div>
 				</div>
 			</div>
-			<div class="row" style="margin:30px;">
-				<div class="col-4"><p>母国</p></div>
+			<div class="row modalbox">
+				<div class="col-4">Native language</div>
 				<div class="col-8">
-					<%= f.fields_for :tourist_native_countries do |tourist_native_country| %>
-						<%= render "tourist_native_country_fields", f: tourist_native_country %>
+					<% @tourist.tourist_native_launguages.each do |language| %>
+						<%= language.tourist_language %>
 					<% end %>
-					<div class="links">
-						<%= link_to_add_association "+", f, :tourist_native_countries %></div>
 				</div>
 			</div>
-			<div class="row" style="margin:30px;">
-				<div class="col-4"><p>学習言語</p></div>
+			<div class="row modalbox">
+				<div class="col-4">Placticing language</div>
 				<div class="col-8">
-					<%= f.fields_for :tourist_practicing_launguages do |tourist_practicing_launguage| %>
-						<%= render "tourist_practicing_launguage_fields", f: tourist_practicing_launguage %>
+					<% @tourist.tourist_practicing_launguages.each do |practicing| %>
+						<%= practicing.tourist_practicing %>
 					<% end %>
-					<div class="links">
-						<%= link_to_add_association "+", f, :tourist_practicing_launguages %></div>
 				</div>
 			</div>
-			<div class="row" style="margin:30px;">
-				<div class="col-4"><p>観光案内地</p></div>
+			<div class="row modalbox">
+				<div class="col-4">Want to travel to</div>
 				<div class="col-8">
-					<%= f.fields_for :tourist_sightseeing_places do |tourist_sightseeing_place| %>
-						<%= render "tourist_sightseeing_place_fields", f: tourist_sightseeing_place %>
+					<% @tourist.tourist_sightseeing_places.each do |place| %>
+						<%= place.sightseeing_place %>
 					<% end %>
-					<div class="links">
-						<%= link_to_add_association "+", f, :tourist_sightseeing_places %></div>
 				</div>
 			</div>
-			<%= f.submit "Update", class:"btn btn-warning" %>
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">edit</button>
 		</div>
 	</div>
-	<% end %>
 </div>
-<%= link_to "logout", destroy_tourist_session_path, method: :delete %>
 
+
+
+<!-- モーダルの設定 -->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">edit</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+					<%= form_for @tourist, url:tourist_path, method: :patch do |f| %>
+							<div class="row modalbox" >
+								<%= f.attachment_field :tourist_profile_image %>
+							</div>
+							<div class="row modalbox" >
+								<div class="col-4">Name</div>
+								<div class="col-8"><%= f.text_field :tourist_lastname %><%= f.text_field :tourist_firstname %></div>
+							</div>
+							<div class="row modalbox" >
+								<div class="col-4">Username</div>
+								<div class="col-8"><%= f.text_field :tourist_username %></div>
+							</div>
+							<div class="row modalbox">
+								<div class="col-4">Gender</div>
+								<div class="col-8">
+							    <label><%= f.radio_button :tourist_gender, 1 %>male</label>
+							    <label><%= f.radio_button :tourist_gender, 2 %>female</label>
+							    <label><%= f.radio_button :tourist_gender, 3 %>other</label>
+								</div>
+							</div>
+							<div class="row modalbox">
+								<div class="col-4">Age</div>
+								<div class="col-8"><%= f.text_field :tourist_age %></div>
+							</div>
+							<div class="row modalbox">
+								<div class="col-4">About me</div>
+								<div class="col-8"><%= f.text_field :tourist_about_me %></div>
+							</div>
+							<div class="row modalbox">
+								<div class="col-4">travel date</div>
+								<div class="col-8"><%= f.date_field :fromdate %>-<%= f.date_field :todate %></div>
+							</div>
+							<div class="row modalbox">
+								<div class="col-4">Native language</div>
+								<div class="col-8">
+									<%= f.fields_for :tourist_native_launguages do |tourist_native_launguage| %>
+										<%= render "tourist_native_launguage_fields", f: tourist_native_launguage %>
+									<% end %>
+									<div class="links">
+										<%= link_to_add_association "+", f, :tourist_native_launguages %></div>
+								</div>
+							</div>
+							<div class="row modalbox">
+								<div class="col-4">Nationality</div>
+								<div class="col-8">
+									<%= f.fields_for :tourist_native_countries do |tourist_native_country| %>
+										<%= render "tourist_native_country_fields", f: tourist_native_country %>
+									<% end %>
+									<div class="links">
+										<%= link_to_add_association "+", f, :tourist_native_countries %></div>
+								</div>
+							</div>
+							<div class="row modalbox">
+								<div class="col-4">Placticing language</div>
+								<div class="col-8">
+									<%= f.fields_for :tourist_practicing_launguages do |tourist_practicing_launguage| %>
+										<%= render "tourist_practicing_launguage_fields", f: tourist_practicing_launguage %>
+									<% end %>
+									<div class="links">
+										<%= link_to_add_association "+", f, :tourist_practicing_launguages %></div>
+								</div>
+							</div>
+							<div class="row modalbox">
+								<div class="col-4">Want to travel to</div>
+								<div class="col-8">
+									<%= f.fields_for :tourist_sightseeing_places do |tourist_sightseeing_place| %>
+										<%= render "tourist_sightseeing_place_fields", f: tourist_sightseeing_place %>
+									<% end %>
+									<div class="links">
+										<%= link_to_add_association "+", f, :tourist_sightseeing_places %></div>
+								</div>
+							</div>
+							<%= f.submit "Update", class:"btn btn-warning" %>
+						</div>
+					</div>
+					<% end %>
+				</div>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">close</button>
+      </div>
+    </div>
+  </div>
+</div>
 

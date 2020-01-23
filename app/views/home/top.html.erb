@@ -18,7 +18,7 @@
 		    </div>
 		  <% end %>
 		</div>
-		<div class="bbb">
+		<div class="button-box">
 			<%= link_to("See more", guides_path, {class: "button"}) %>
 		</div>
 
@@ -34,11 +34,11 @@
 	    </div>
 	  <% end %>
 	</div>
-	<button type="button" class="btn btn-light rounded-pill">
-		<%= link_to"もっと見る", tourists_path %>
-	</button>
+	<div class="button-box">
+			<%= link_to("See more", tourists_path, {class: "button"}) %>
+	</div>
 
 <h1>ガイドの登録はこちら</h1>
-<%= link_to new_tourist_registration_path, class: "btn-warning btn" do %>
-          <i class="glyphicon glyphicon-user text-danger" style="font-weight: bold; font-size: 20px;">登録する</i>
-          <% end %>s
+	<div class="button-box">
+		<%= link_to("登録する", new_guide_registration_path, {class: "button"}) %>
+	</div>

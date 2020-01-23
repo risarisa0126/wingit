@@ -35,5 +35,5 @@ class Guide < ApplicationRecord
   validates :guide_gender, presence: true
   validates :guide_age, presence: true
   validates :guide_profile_image, presence: true
-  validates :guide_about_me, presence: true, length: { maximum: 300 }
+  validates :guide_about_me, presence: true, length: { maximum: 1000 }
 end

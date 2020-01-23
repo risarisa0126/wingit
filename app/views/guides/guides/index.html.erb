@@ -2,10 +2,7 @@
 
 <div class="container">
 	<div class="row">
-			<%= search_form_for @search do |f| %>
-		  <%= f.label :name, "Keyword" %>
-		  <%= f.search_field :guide_lastname_cont %>
-
+			<%= search_form_for @q do |f| %>
 		  <%= f.label :guide_age %>
 		  <%= f.number_field :guide_age_gteq %>以上〜
 		  <%= f.number_field :guide_age_lt %>未満
