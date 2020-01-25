@@ -9,7 +9,6 @@
   align-items: center;
   text-align: center;
   margin: 0 auto;
-  background-color: #fffafa;
 }
 
 .top-image{
@@ -21,12 +20,29 @@
 	background-attachment: fixed;
 }
 
-.top-logo{
+.top-title{
   text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
   color: #fff;
   letter-spacing: 1.0rem;
   font-size :200px;
 }
+
+.top-info{
+  height: 300px;
+  margin:30px;
+  background-color:#fffafa;;
+}
+
+.top-logo {
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+  color: #fff;
+  font-size :50px;
+}
+
+.container {
+  width: 90%;
+}
+
 
 .card{
   margin: auto;

@@ -1,26 +1,34 @@
 <div class="container">
 
 
-<h1>チャット一覧</h1>
-	<div class="row" style="border:solid 1px;">
-			<div class="col">
-				<% if guide_signed_in? %>
-					<% @rooms.each do |room| %>
-	    			<%= link_to room_path(room.id) do %>
-		  				<%= attachment_image_tag room.tourist, :tourist_profile_image, :fill, 1000, 1000, size: '150x150', class: "rounded-circle" %>
-            <% end %>
-            <%= room.tourist.tourist_username %>
-          <% end %>
+	<h1>Chats</h1>
+		<% if guide_signed_in? %>
+			<% @rooms.each do |room| %>
+				<div class="row chat-partner">
+						<div class="col-6 col-lg-4">
+		    			<%= link_to room_path(room.id) do %>
+			  				<%= attachment_image_tag room.tourist, :tourist_profile_image, :fill, 1000, 1000, size: '150x150', class: "rounded-circle" %>
+	          	<% end %>
+	       		</div>
+	        	<div class="col-6 col-lg-8">
+	          	<%= room.tourist.tourist_username %>
+	        	</div>
+	      </div>
+	    <% end %>
 
-				<% elsif tourist_signed_in? %>
-		  		<% @rooms.each do |room| %>
-		  			<%= link_to room_path(room.id) do %>
-		  				<%= attachment_image_tag room.guide, :guide_profile_image, :fill, 1000, 1000, size: '150x150', class: "rounded-circle" %>
-            <% end %>
-            <%= room.guide.guide_username %>
-          <% end %>
-		  	<% end %>
-			</div>
-	</div>
+		<% elsif tourist_signed_in? %>
+			<% @rooms.each do |room| %>
+				<div class="row chat-partner">
+						<div class="col-4">
+			  		<%= link_to room_path(room.id) do %>
+			  			<%= attachment_image_tag room.guide, :guide_profile_image, :fill, 1000, 1000, size: '150x150', class: "rounded-circle" %>
+	          <% end %>
+	        </div>
+	        <div class="col-8">
+	          <%= room.guide.guide_username %>
+	        </div>
+	        </div>
+	    <% end %>
+	  <% end %>
 </div>
 

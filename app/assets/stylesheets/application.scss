@@ -5,11 +5,15 @@
 @import "rooms.scss";
 @import "messages.scss";
 
+* {
+  box-sizing: border-box;
+}
+
 h1{
 	padding: 50px;
 	text-align: center;
 }
-h3s{
+h{
   padding: 50px;
   text-align: center;
 }
@@ -17,9 +21,14 @@ h3s{
 .wrapper {
   height: 100%;
 }
-main {
+
+.container{
   height: 100%;
   background-color: #fff;
+}
+main {
+  height: 100%;
+  // background-color: red;
   transition: all .5s;
 }
 /*メイン画面を同じように左に移動させる*/
@@ -69,7 +78,7 @@ side {
   width: 250px;
   height: 100%;
   padding-top: 100px;
-  background-color: lightgrey;
+  background-color: #CCC;
   position: fixed;
   top: 0;
   right: 0;
@@ -83,17 +92,17 @@ side.open {
 side li {
   text-align: center;
   padding: 10px 0;
+  text-decoration: none;
+  color: #fff;
 }
 
-* {
-  box-sizing: border-box;
-}
 ul {
   list-style: none;
   text-decoration: none;
   margin: 0;
   padding: 0;
 }
+
 
 // body {
 //   margin-top: 80px;

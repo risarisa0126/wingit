@@ -2,18 +2,28 @@
 
 <div class="container">
 	<div class="row">
+		<div class="col">
 			<%= search_form_for @q do |f| %>
-		  <%= f.label :guide_age %>
-		  <%= f.number_field :guide_age_gteq %>以上〜
-		  <%= f.number_field :guide_age_lt %>未満
-
-		  <%= f.label :guide_gender %>
-		　<%= f.radio_button :guide_gender_eq, '', {:checked => true} %>指定なし
-		  <%= f.radio_button :guide_gender_eq, 1 %>男性
-		  <%= f.radio_button :guide_gender_eq, 2 %>女性
-
-		  <%= f.submit "検索" %>
-		<% end %>
+				place
+				<%= f.search_field :able_to_guide_places_guide_place_cont %>
+				age
+				  <%= f.number_field :guide_age_gteq %>〜
+				  <%= f.number_field :guide_age_lt %>
+				gender
+			　<%= f.radio_button :guide_gender_eq, '', {:checked => true} %>blank
+			  <%= f.radio_button :guide_gender_eq, 1 %>male
+			  <%= f.radio_button :guide_gender_eq, 2 %>female
+		</div>
+	</div>
+		<div class="row">
+			<div class="col">
+				date
+				<%= f.date_field :dayofweeks_day_gteq, include_blank: true %>
+			  placticing language
+			  <%= f.search_field :guide_practicing_launguages_guide_practicing_cont %>
+			  <%= f.submit "serch" %>
+			<% end %>
+		</div>
 	</div>
 
 
@@ -30,7 +40,7 @@
 				      <%= attachment_image_tag guide, :guide_profile_image, :fill, 1000, 1000, size: '300x300', class: "rounded" %>
 				    <% end %>
 				    <div class="row"><%= guide.guide_username %></div>
-				    <div class="row"><%= guide.guide_about_me %></div>
+				    <div class="row"><%= guide.guide_about_me.truncate(20) %></div>
 			  	</div>
 				<% end %>
 			</div>

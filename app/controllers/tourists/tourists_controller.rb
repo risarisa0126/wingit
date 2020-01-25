@@ -4,7 +4,7 @@ class Tourists::TouristsController < ApplicationController
   before_action :tourist_find, only: [:show, :mypage, :update]
 
   def index
-    @q = Tourist.ransack(params[:q])
+    @q = Tourist.includes(:tourist_sightseeing_places, :tourist_practicing_launguages).ransack(params[:q])
     @tourists = @q.result(distinct: true)
   end
 

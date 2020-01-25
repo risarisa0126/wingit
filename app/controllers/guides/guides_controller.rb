@@ -4,7 +4,7 @@ class Guides::GuidesController < ApplicationController
   before_action :guide_find, only: [:show, :mypage, :update]
 
   def index
-    @q = Guide.ransack(params[:q])
+    @q = Guide.includes(:able_to_guide_places, :guide_practicing_launguages, :dayofweeks).ransack(params[:q])
     @guides = @q.result(distinct: true)
   end
 
