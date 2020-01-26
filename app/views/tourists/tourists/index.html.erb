@@ -26,50 +26,16 @@
 		</div>
 	</div>
 
-
-<br>
-<br>
-<br>
-
-
-		<div class="container">
-			<div class="row">
-				<% @tourists.each do |tourist| %>
-					<div class="col">
-						<%= link_to tourist_path(tourist.id) do %>
-				      <%= attachment_image_tag tourist, :tourist_profile_image, :fill, 1000, 1000, size: '300x300', class: "rounded" %>
-				    <% end %>
-				    <div class="row"><%= tourist.tourist_username %></div>
-				    <div class="row"><%= tourist.tourist_about_me %></div>
-			  	</div>
-				<% end %>
-			</div>
-		</div>
-
-
-
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+	<div class="row">
+		<% @tourists.each do |tourist| %>
+			<div class="col-lg-4 col-6" style="margin-top:70px;">
+				<%= link_to tourist_path(tourist.id) do %>
+		      <%= attachment_image_tag tourist, :tourist_profile_image, :fill, 1000, 1000, class: "rounded w-100" %>
+		    <% end %>
+		    <h5><%= tourist.tourist_username %></h5>
+		    <h6><%= tourist.tourist_about_me.truncate(20) %></h6>
+	  	</div>
+		<% end %>
+	</div>
+	<%= paginate @tourists %>
+</div>

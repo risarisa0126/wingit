@@ -12,14 +12,14 @@
   </head>
 
 
-  <div class="wrapper">
-
+   <body>
     <header>
       <nav class="navbar navbar-fixed-top" style="background-color:#ffffff;">
         <div class="navbar-header navbar-left">
           <%= link_to image_tag("WINGIT.jpg", class: "image", height: "40", ), root_path %>
         </div>
         <ul class="nav navbar-nav navbar-right">
+          <div class="wrapper">
           <div class="menu-trigger" href="">
             <span></span>
             <span></span>
@@ -47,16 +47,15 @@
         </side>
         <div class="overlay"></div>
       </nav>
+      </div>
     </header>
 
-    <body>
+      <body class='<%= "#{controller.controller_name}" %>'>
       <main>
       <!-- <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
     -->
       <%= yield %>
       </main>
-
     </body>
-  </div>
 </html>

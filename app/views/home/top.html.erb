@@ -2,53 +2,63 @@
 
 <div class="top top-image">
 	<div class="top-title">
-		<p>WING IT</p>
+		<div class="row">
+			<div class="col">
+				<p>WING IT</p>
+			</div>
+		</div>
+		<p></p>
 	</div>
 </div>
 
-<div class="top top-info">
-	<div class="top-logo">
-		<p>Are you looking for some guides?</p>
+
+<h1>GUIDES</h1>
+<div class="row user-bigbox">
+	<% @guides.each do |guide| %>
+		<div class="user-box col-lg-2 col-4">
+			<%= link_to guide_path(guide.id) do %>
+      	<%= attachment_image_tag guide, :guide_profile_image, :fill, 1000, 1000, class: "rounded w-100" %>
+    	<% end %>
+    	<h5><%= guide.guide_username %></h5>
+    </div>
+  <% end %>
+</div>
+<div class="button-box">
+	<%= link_to("See more", guides_path, {class: "button"}) %>
+</div>
+</div>
+
+
+
+<h1>TOURISTS</h1>
+<div class="row user-bigbox">
+	<% @tourists.each do |tourist| %>
+		<div class="user-box col-lg-2 col-4">
+			<%= link_to tourist_path(tourist.id) do %>
+      	<%= attachment_image_tag tourist, :tourist_profile_image, :fill, 1000, 1000, class: "rounded w-100" %>
+    	<% end %>
+    	<h5><%= tourist.tourist_username %></h5>
+    </div>
+  <% end %>
+</div>
+<div class="button-box">
+		<%= link_to("See more", tourists_path, {class: "button"}) %>
+</div>
+
+<div class="row">
+	<div class="col-lg-6">
+		<div class="title">
+			Are you looking for some tourist?
+		</div>
+		<div class="button-box"><%= link_to("登録する", new_guide_registration_path, {class: "button"}) %></div>
+	</div>
+	<div class="col-lg-6">
+	<div class="title">
+			Are you looking for some tourist?
+		</div>
+		<div class="button-box"><%= link_to("register", new_tourist_registration_path, {class: "button"}) %></div>
 	</div>
 </div>
 
-<div class="container">
-	<h1>GUIDES</h1>
-	<div class="row">
-		<% @guides.each do |guide| %>
-			<div class="card">
-				<%= link_to guide_path(guide.id) do %>
-	      	<%= attachment_image_tag guide, :guide_profile_image, :fill, 1000, 1000, size: '220x220', class: "rounded" %>
-	    	<% end %>
-	    	<h5 class="card-title"><%= guide.guide_username %></h5>
-	    </div>
-	  <% end %>
-	</div>
-	<div class="button-box">
-		<%= link_to("See more", guides_path, {class: "button"}) %>
-	</div>
 
 
-	<h1>TOURISTS</h1>
-	<div class="row">
-		<% @tourists.each do |tourist| %>
-			<div class="card">
-				<%= link_to tourist_path(tourist.id) do %>
-	      	<%= attachment_image_tag tourist, :tourist_profile_image, :fill, 1000, 1000, size: '220x220', class: "rounded" %>
-	    	<% end %>
-	    	<h5 class="card-title"><%= tourist.tourist_username %></h5>
-	    </div>
-	  <% end %>
-	</div>
-	<div class="button-box">
-			<%= link_to("See more", tourists_path, {class: "button"}) %>
-	</div>
-
-<div class="top top-info">
-	<div class="top-logo">ガイドの登録はこちら</div>
-	<div class="button-box">
-		<%= link_to("登録する", new_guide_registration_path, {class: "button"}) %>
-	</div>
-</div>
-
-</div>

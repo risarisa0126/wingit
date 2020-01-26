@@ -2,8 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.chat-box {
-	width:70%;
+// .RoomsController {
+//   background-color: green;
+// }
+
+.rooms{
+  background-image: url(room.gif);
+}
+
+.room  {
+	width: 60%;
+  margin-top: 40px;
 }
 
 .guide-page-messages .guide-message {
@@ -12,7 +21,7 @@
   padding: 7px 10px;
   color: #555;
   font-size: 16px;
-  background: #e0edff;
+  background: #BCF5A9;;
   border-radius: 15px;
   margin-left:60%;
 }
@@ -42,7 +51,7 @@
   padding: 7px 10px;
   color: #555;
   font-size: 16px;
-  background: #e0edff;
+  background: #BCF5A9;;
   border-radius: 15px;
   margin-right:60%;
 }
