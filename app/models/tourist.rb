@@ -12,7 +12,7 @@ class Tourist < ApplicationRecord
   has_many :tourist_sightseeing_places, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :reviews, dependent: :destroy
-  has_many :rooms
+  has_many :rooms, dependent: :destroy
   attachment :tourist_profile_image
 
   accepts_nested_attributes_for :tourist_native_countries, allow_destroy: true
