@@ -4,8 +4,8 @@ class Tourists::TouristsController < ApplicationController
   before_action :tourist_find, only: [:show, :mypage, :update]
 
   def index
-    @q = Tourist.ransack(params[:q])
-    @tourists = @q.result(distinct: true)
+    @q = Tourist.includes(:tourist_sightseeing_places, :tourist_practicing_launguages).ransack(params[:q])
+    @tourists = @q.result(distinct: true).page(params[:page]).per(12).order("created_at DESC")
   end
 
 
@@ -23,7 +23,7 @@ class Tourists::TouristsController < ApplicationController
   end
 
   def mypage
-  	# @tourist.tourist_native_launguages.build
+   # @tourist.tourist_native_launguages.build
    #  @tourist.tourist_native_countries.build
    #  @tourist.tourist_practicing_launguages.build
    #  @tourist.tourist_sightseeing_places.build
@@ -34,6 +34,11 @@ class Tourists::TouristsController < ApplicationController
     redirect_to mypage_tourist_path(@tourist)
   end
 
+  def destroy
+    @tourist = Tourist.find(params[:id])
+    @tourist.destroy
+    redirect_to admins_users_index_path
+  end
 
 
   private
@@ -56,5 +61,4 @@ class Tourists::TouristsController < ApplicationController
   								tourist_practicing_launguages_attributes: [:id, :tourist_practicing, :_destroy],
   								tourist_sightseeing_places_attributes: [:id, :sightseeing_place, :_destroy])
   end
-
 end

@@ -3,17 +3,32 @@
  		<h1></h1>
 			<div class="col-12">
 				<div class="row">
-					<div class="col-6">
+					<div class="col-lg-6 col-4">
 						<%= attachment_image_tag @guide, :guide_profile_image, :fill, 1000, 1000, size: '300x300', class: "rounded-circle"  %>
 					</div>
-					<div class="col-6">
-							<div class="type-shine">Hello guys !</div><br>
-							<div class="type-shine">I'm <%= @guide.guide_username %>.(<%= @guide.guide_age %>)</div>
+					<div class="col-lg-6">
+						<div class="type-shine">こんにちは !</div>
+						<div class="type-shine">私は <%= @guide.guide_username %>です！(<%= @guide.guide_age %>)</div>
+						<br>
+						<br>
+						<% if tourist_signed_in? %>
+							<% if @room.exists? %>
+								<%= link_to "keep chat", room_path(current_tourist.rooms.find_by(guide_id: @guide.id)), class: "btn btn-outline-danger" %>
+							<% else %>
+					  		<%= form_for [:guide, @newroom], url: rooms_path do |f| %>
+					    		<%= f.hidden_field :guide_id, :value => @guide.id %>
+					      	<%= button_tag(class: "btn btn-outline-danger") do %>
+					        	<%= content_tag :span, "do chat" %>
+					      	<% end %>
+					  		<% end %>
+							<% end %>
+						<% elsif current_guide %>
+							<%= link_to "chatroom", rooms_path(current_guide.id), class: "btn btn-outline-danger" %>
+						<% end %>
 					</div>
 				</div>
 			</div>
 		</div>
-
 
 		<div class="box">
 			<div class="content" style="color: #999; font-size: 20px;">
@@ -79,25 +94,6 @@
 					<%= days.day.strftime("%A") %> /
 				<% end %>
 			</div>
-		</div>
-	</div>
-
-	<div class="box">
-		<div class="content">
-			<% if tourist_signed_in? %>
-				<% if @room.exists? %>
-					<%= link_to "チャットへ", room_path(current_tourist.rooms.find_by(guide_id: @guide.id)), class: "btn btn-outline-danger" %>
-				<% else %>
-		  		<%= form_for [:guide, @newroom], url: rooms_path do |f| %>
-		    		<%= f.hidden_field :guide_id, :value => @guide.id %>
-		      	<%= button_tag(class: "btn btn-outline-danger") do %>
-		        	<%= content_tag :span, "チャットする" %>
-		      	<% end %>
-		  		<% end %>
-				<% end %>
-			<% elsif current_guide %>
-				<%= link_to "チャットルーム一覧", rooms_path(current_guide.id) %>
-			<% end %>
 		</div>
 	</div>
 

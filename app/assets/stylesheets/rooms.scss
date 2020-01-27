@@ -2,15 +2,66 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// .RoomsController {
+//   background-color: green;
+// }
+
+.rooms{
+  background-image: url(room.gif);
+}
+
+.room  {
+	width: 80%;
+  margin-top: 40px;
+}
+
 .guide-page-messages .guide-message {
   text-align: right;
+  position: relative;
+  padding: 7px 10px;
+  color: #555;
+  font-size: 16px;
+  background: #BCF5A9;;
+  border-radius: 15px;
+  margin-left:60%;
 }
 .guide-page-messages .tourist-message {
   text-align: left;
-}
-.tourist-page-messages .guide-message {
-  text-align: left;
+  position: relative;
+  padding: 7px 10px;
+  color: #555;
+  font-size: 16px;
+  background: #e0edff;
+  border-radius: 15px;
+  margin-right:60%;
 }
 .tourist-page-messages .tourist-message {
   text-align: right;
+  position: relative;
+  padding: 7px 10px;
+  color: #555;
+  font-size: 16px;
+  background: #BCF5A9;
+  border-radius: 15px;
+  margin-left:60%;
 }
+.tourist-page-messages .guide-message {
+  text-align: left;
+  position: relative;
+  padding: 7px 10px;
+  color: #555;
+  font-size: 16px;
+  background: #e0edff;
+  border-radius: 15px;
+  margin-right:60%;
+}
+
+// .balloon1:before {
+//   content: "";
+//   position: absolute;
+//   top: 100%;
+//   left: 50%;
+//   margin-left: -15px;
+//   border: 15px solid transparent;
+//   border-top: 15px solid #e0edff;
+// }

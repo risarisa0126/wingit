@@ -2,71 +2,42 @@
 
 <div class="container">
 	<div class="row">
+		<div class="col">
 			<%= search_form_for @q do |f| %>
-			<p>場所</p>
-			<p>年齢</p>
-			  <%= f.number_field :tourist_age_gteq %>以上〜
-			  <%= f.number_field :tourist_age_lt %>未満
-
-			<p>日時</p>
-			<%= f.date_field :fromdate_gteq %>
-			~
-			<%= f.date_field :todate_lteq_end_of_day %>
-
-			<p>性別</p>
-		　<%= f.radio_button :tourist_gender_eq, '', {:checked => true} %>指定なし
-		  <%= f.radio_button :tourist_gender_eq, 1 %>男性
-		  <%= f.radio_button :tourist_gender_eq, 2 %>女性
-
-		  <p>学習言語</p>
-		  <%= f.submit "検索" %>
-		<% end %>
+				place
+				<%= f.search_field :tourist_sightseeing_places_sightseeing_place_cont %>
+				age
+				  <%= f.number_field :tourist_age_gteq %>〜
+				  <%= f.number_field :tourist_age_lt %>
+				gender
+				<div class="form-check form-check-inline">
+				　<%= f.radio_button :tourist_gender_eq, '', {:checked => true} %>blank
+				  <%= f.radio_button :tourist_gender_eq, 1 %>male
+				  <%= f.radio_button :tourist_gender_eq, 2 %>female
+				</div>
+		</div>
+	</div>
+		<div class="row">
+			<div class="col">
+				dete
+				<%= f.date_field :fromdate_gteq, include_blank: true %>~<%= f.date_field :todate_lteq, include_blank: true %>
+			  placticing language
+			  <%= f.search_field :tourist_practicing_launguages_tourist_practicing_cont %>
+			  <%= f.submit "serch" %>
+			<% end %>
+		</div>
 	</div>
 
-
-<br>
-<br>
-<br>
-
-
-		<div class="container">
-			<div class="row">
-				<% @tourists.each do |tourist| %>
-					<div class="col">
-						<%= link_to tourist_path(tourist.id) do %>
-				      <%= attachment_image_tag tourist, :tourist_profile_image, :fill, 1000, 1000, size: '300x300', class: "rounded" %>
-				    <% end %>
-				    <div class="row"><%= tourist.tourist_username %></div>
-				    <div class="row"><%= tourist.tourist_about_me %></div>
-			  	</div>
-				<% end %>
-			</div>
-		</div>
-
-
-
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+	<div class="row">
+		<% @tourists.each do |tourist| %>
+			<div class="col-lg-4 col-6" style="margin-top:70px;">
+				<%= link_to tourist_path(tourist.id) do %>
+		      <%= attachment_image_tag tourist, :tourist_profile_image, :fill, 1000, 1000, class: "rounded w-100" %>
+		    <% end %>
+		    <h5><%= tourist.tourist_username %></h5>
+		    <h6><%= tourist.tourist_about_me.truncate(20) %></h6>
+	  	</div>
+		<% end %>
+	</div>
+	<%= paginate @tourists %>
+</div>

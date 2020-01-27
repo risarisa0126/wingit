@@ -1,17 +1,12 @@
+
 <% if message.is_guide %>
 	<p class="guide-message">
 		<%= message.body %>
-		<%= message.created_at.strftime("%Y-%m-%d %H:%M") %>
-		<%= attachment_image_tag message.room.guide, :guide_profile_image,:fill, 1000, 1000, size: '60x60', class: "rounded-circle" %>
 	</p>
 <% else %>
 	<p class="tourist-message">
-		<%= attachment_image_tag message.room.tourist, :tourist_profile_image, :fill, 1000, 1000, size: '60x60', class: "rounded-circle" %>
-		<%= message.created_at.strftime("%Y-%m-%d %H:%M") %>
 		<%= message.body %>
 	</p>
 <% end %>
 
 
-
-<% message.room.tourist.tourist_username %>

@@ -2,65 +2,67 @@
 
 <div class="container-fluid">
  	<div class="row">
-		<div class="col-sm-5">
+		<div class="col-5">
   			<div class="float-right">
 				<%= attachment_image_tag current_guide, :guide_profile_image, :fill, 1000, 1000, size: '150x150', fallback: "no_image.jpg", class: "rounded-circle"  %>
 			</div>
 		</div>
-		<div class="col-sm-7">
+		<div class="col-7">
 			<div class="row modalbox">
-				<div class="col-4">Name</div>
-				<div class="col-8"><%= @guide.guide_username %>.(<%= @guide.guide_age %>)</div>
+				<div class="col-lg-4">Name</div>
+				<div class="col-lg-8"><%= @guide.guide_username %>.(<%= @guide.guide_age %>)</div>
 			</div>
 			<div class="row modalbox">
-				<div class="col-4">Gender</div>
-				<div class="col-8"><%= @guide.guide_gender %></div>
+				<div class="col-lg-4">Gender</div>
+				<div class="col-lg-8"><%= @guide.guide_gender %></div>
 			</div>
 			<div class="row modalbox">
-				<div class="col-4">About me</div>
-				<div class="col-8"><%= @guide.guide_about_me %></div>
+				<div class="col-lg-4">About me</div>
+				<div class="col-lg-8"><%= @guide.guide_about_me %></div>
 			</div>
 			<div class="row modalbox">
-				<div class="col-4">Nationality</div>
-				<div class="col-8">
+				<div class="col-lg-4">Nationality</div>
+				<div class="col-lg-8">
 					<% @guide.guide_native_countries.each do |country| %>
 						<%= country.guide_country %>
 					<% end %>
 				</div>
 			</div>
 			<div class="row modalbox">
-				<div class="col-4">Native language</div>
-				<div class="col-8">
+				<div class="col-lg-4">Native language</div>
+				<div class="col-lg-8">
 					<% @guide.guide_native_launguages.each do |language| %>
 						<%= language.guide_language %>
 					<% end %>
 				</div>
 			</div>
 			<div class="row modalbox">
-				<div class="col-4">Placticing language</div>
-				<div class="col-8">
+				<div class="col-lg-4">Placticing language</div>
+				<div class="col-lg-8">
 					<% @guide.guide_practicing_launguages.each do |practicing| %>
 						<%= practicing.guide_practicing %>
 					<% end %>
 				</div>
 			</div>
 			<div class="row modalbox">
-				<div class="col-4">Able to guide</div>
-				<div class="col-8">
+				<div class="col-lg-4">Able to guide</div>
+				<div class="col-lg-8">
 					<% @guide.able_to_guide_places.each do |place| %>
 						<%= place.guide_place %>
 					<% end %>
 				</div>
 			</div>
 			<div class="row modalbox">
-				<div class="col-4">Able to guide days</div>
-				<div class="col-8">
+				<div class="col-lg-4">Able to guide days</div>
+				<div class="col-lg-8">
 					<% @guide.dayofweeks.each do |days| %>
 						<%= days.day.strftime("%Y年%-m月%-d日 %a") %>
 					<% end %>
 				</div>
 			</div>
-			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">edit</button>
+			<div class="row modalbox" style="width:60%">
+				<button type="button" class="btn btn-outline-secondary btn-block" data-toggle="modal" data-target="#staticBackdrop">edit</button>
+			</div>
 		</div>
 	</div>
 </div>
@@ -84,16 +86,16 @@
 								<%= f.attachment_field :guide_profile_image %>
 							</div>
 							<div class="row modalbox" >
-								<div class="col-4">名前</div>
-								<div class="col-8"><%= f.text_field :guide_lastname %><%= f.text_field :guide_firstname %></div>
+								<div class="col-lg-4">名前</div>
+								<div class="col-lg-8"><%= f.text_field :guide_lastname %><%= f.text_field :guide_firstname %></div>
 							</div>
 							<div class="row modalbox" >
-								<div class="col-4">ユーザーネーム</div>
-								<div class="col-8"><%= f.text_field :guide_username %></div>
+								<div class="col-lg-4">ユーザーネーム</div>
+								<div class="col-lg-8"><%= f.text_field :guide_username %></div>
 							</div>
 							<div class="row modalbox">
-								<div class="col-4">性別</div>
-								<div class="col-8">
+								<div class="col-lg-4">性別</div>
+								<div class="col-lg-8">
 							    <label><%= f.label :男 %></label>
 					          <%= f.radio_button :guide_gender, "男" %>
 					        <label><%= f.label :女 %></label>
@@ -103,16 +105,16 @@
 								</div>
 							</div>
 							<div class="row modalbox">
-								<div class="col-4">年齢</div>
-								<div class="col-8"><%= f.text_field :guide_age %></div>
+								<div class="col-lg-4">年齢</div>
+								<div class="col-lg-8"><%= f.text_field :guide_age %></div>
 							</div>
 							<div class="row modalbox">
-								<div class="col-4">プロフィール</div>
-								<div class="col-8"><%= f.text_field :guide_about_me %></div>
+								<div class="col-lg-4">プロフィール</div>
+								<div class="col-lg-8"><%= f.text_field :guide_about_me %></div>
 							</div>
 							<div class="row modalbox">
-								<div class="col-4">母国</div>
-								<div class="col-8">
+								<div class="col-lg-4">母国</div>
+								<div class="col-lg-8">
 									<%= f.fields_for :guide_native_countries do |guide_native_country| %>
 										<%= render "guide_native_country_fields", f: guide_native_country %>
 									<% end %>
@@ -121,8 +123,8 @@
 								</div>
 							</div>
 							<div class="row modalbox">
-								<div class="col-4">母国語</div>
-								<div class="col-8">
+								<div class="col-lg-4">母国語</div>
+								<div class="col-lg-8">
 									<%= f.fields_for :guide_native_launguages do |guide_native_launguage| %>
 										<%= render "guide_native_launguage_fields", f: guide_native_launguage %>
 									<% end %>
@@ -131,8 +133,8 @@
 								</div>
 							</div>
 							<div class="row modalbox">
-								<div class="col-4">学習言語</div>
-								<div class="col-8">
+								<div class="col-lg-4">学習言語</div>
+								<div class="col-lg-8">
 									<%= f.fields_for :guide_practicing_launguages do |guide_practicing_launguage| %>
 										<%= render "guide_practicing_launguage_fields", f: guide_practicing_launguage %>
 									<% end %>
@@ -141,8 +143,8 @@
 								</div>
 							</div>
 							<div class="row modalbox">
-								<div class="col-4">観光案内地</div>
-								<div class="col-8">
+								<div class="col-lg-4">観光案内地</div>
+								<div class="col-lg-8">
 									<%= f.fields_for :able_to_guide_places do |able_to_guide_place| %>
 										<%= render "able_to_guide_place_fields", f: able_to_guide_place %>
 									<% end %>
@@ -151,8 +153,8 @@
 								</div>
 							</div>
 							<div class="row modalbox">
-								<div class="col-4">観光可能日</div>
-								<div class="col-8">
+								<div class="col-lg-4">観光可能日</div>
+								<div class="col-lg-8">
 									<%= f.fields_for :dayofweeks do |dayofweek| %>
 										<%= render "dayofweek_fields", f: dayofweek %>
 									<% end %>
@@ -160,7 +162,7 @@
 										<%= link_to_add_association "+", f, :dayofweeks %></div>
 								</div>
 							</div>
-							<%= f.submit "Update", class:"btn btn-warning" %>
+							<%= f.submit "Update", class:"btn btn-outline-secondary btn-block" %>
 						</div>
 					</div>
 					<% end %>

@@ -7,12 +7,12 @@ class Guide < ApplicationRecord
 
 
 
-  has_many :guide_pictures
-  has_many :guide_native_countries
-  has_many :guide_native_launguages
-  has_many :guide_practicing_launguages
-  has_many :able_to_guide_places
-  has_many :dayofweeks
+  has_many :guide_pictures, dependent: :destroy
+  has_many :guide_native_countries, dependent: :destroy
+  has_many :guide_native_launguages, dependent: :destroy
+  has_many :guide_practicing_launguages, dependent: :destroy
+  has_many :able_to_guide_places, dependent: :destroy
+  has_many :dayofweeks, dependent: :destroy
 
   accepts_nested_attributes_for :guide_native_countries, allow_destroy: true
   accepts_nested_attributes_for :guide_native_launguages, allow_destroy: true
@@ -20,9 +20,9 @@ class Guide < ApplicationRecord
   accepts_nested_attributes_for :dayofweeks, allow_destroy: true
   accepts_nested_attributes_for :able_to_guide_places, allow_destroy: true
 
-  has_many :favorites
-  has_many :reviews
-  has_many :rooms
+  has_many :favorites, dependent: :destroy
+  has_many :reviews, dependent: :destroy
+  has_many :rooms, dependent: :destroy
   attachment :guide_profile_image
 
 

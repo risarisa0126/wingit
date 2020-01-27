@@ -4,8 +4,8 @@ class Guides::GuidesController < ApplicationController
   before_action :guide_find, only: [:show, :mypage, :update]
 
   def index
-    @q = Guide.ransack(params[:q])
-    @guides = @q.result(distinct: true)
+    @q = Guide.includes(:able_to_guide_places, :guide_practicing_launguages, :dayofweeks).ransack(params[:q])
+    @guides = @q.result(distinct: true).page(params[:page]).per(12).order("created_at DESC")
   end
 
 
@@ -35,7 +35,11 @@ class Guides::GuidesController < ApplicationController
     redirect_to mypage_guide_path(@guide)
   end
 
-
+  def destroy
+    @guide = Guide.find(params[:id])
+    @guide.destroy
+    redirect_to admins_users_index_path
+  end
 
   private
 
