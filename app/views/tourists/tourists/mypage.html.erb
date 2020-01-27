@@ -2,61 +2,63 @@
 
 <div class="container-fluid">
  	<div class="row">
-		<div class="col-sm-5">
+		<div class="col-5">
   			<div class="float-right">
 				<%= attachment_image_tag current_tourist, :tourist_profile_image, :fill, 1000, 1000, size: '150x150', fallback: "no_image.jpg", class: "rounded-circle"  %>
 			</div>
 		</div>
-		<div class="col-sm-7">
+		<div class="col-7">
 			<div class="row modalbox">
-				<div class="col-4">Name</div>
-				<div class="col-8"><%= @tourist.tourist_username %>.(<%= @tourist.tourist_age %>)</div>
+				<div class="col-lg-4">Name</div>
+				<div class="col-lg-8"><%= @tourist.tourist_username %>.(<%= @tourist.tourist_age %>)</div>
 			</div>
 			<div class="row modalbox">
-				<div class="col-4">Gender</div>
-				<div class="col-8"><%= @tourist.tourist_gender %></div>
+				<div class="col-lg-4">Gender</div>
+				<div class="col-lg-8"><%= @tourist.tourist_gender %></div>
 			</div>
 			<div class="row modalbox">
-				<div class="col-4">About me</div>
-				<div class="col-8"><%= @tourist.tourist_about_me %></div>
+				<div class="col-lg-4">About me</div>
+				<div class="col-lg-8"><%= @tourist.tourist_about_me %></div>
 			</div>
 			<div class="row modalbox">
-				<div class="col-4">travel date</div>
-				<div class="col-8">from <%= @tourist.fromdate.strftime("%Y年%-m月%-d日 %a") %> to <%= @tourist.todate.strftime("%Y年%-m月%-d日 %a") %></div>
+				<div class="col-lg-4">travel date</div>
+				<div class="col-lg-8">from <%= @tourist.fromdate.strftime("%Y年%-m月%-d日 %a") %> to <%= @tourist.todate.strftime("%Y年%-m月%-d日 %a") %></div>
 			</div>
 			<div class="row modalbox">
-				<div class="col-4">Nationality</div>
-				<div class="col-8">
+				<div class="col-lg-4">Nationality</div>
+				<div class="col-lg-8">
 					<% @tourist.tourist_native_countries.each do |country| %>
 						<%= country.tourist_country %>
 					<% end %>
 				</div>
 			</div>
 			<div class="row modalbox">
-				<div class="col-4">Native language</div>
-				<div class="col-8">
+				<div class="col-lg-4">Native language</div>
+				<div class="col-lg-8">
 					<% @tourist.tourist_native_launguages.each do |language| %>
 						<%= language.tourist_language %>
 					<% end %>
 				</div>
 			</div>
 			<div class="row modalbox">
-				<div class="col-4">Placticing language</div>
-				<div class="col-8">
+				<div class="col-lg-4">Placticing language</div>
+				<div class="col-lg-8">
 					<% @tourist.tourist_practicing_launguages.each do |practicing| %>
 						<%= practicing.tourist_practicing %>
 					<% end %>
 				</div>
 			</div>
 			<div class="row modalbox">
-				<div class="col-4">Want to travel to</div>
-				<div class="col-8">
+				<div class="col-lg-4">Want to travel to</div>
+				<div class="col-lg-8">
 					<% @tourist.tourist_sightseeing_places.each do |place| %>
 						<%= place.sightseeing_place %>
 					<% end %>
 				</div>
 			</div>
-			<button type="button" class="btn btn-outline-secondary btn-block" data-toggle="modal" data-target="#staticBackdrop">edit</button>
+			<div class="row modalbox" style="width:60%">
+				<button type="button" class="btn btn-outline-secondary btn-block" data-toggle="modal" data-target="#staticBackdrop">edit</button>
+			</div>
 		</div>
 	</div>
 </div>
@@ -80,36 +82,36 @@
 								<%= f.attachment_field :tourist_profile_image %>
 							</div>
 							<div class="row modalbox" >
-								<div class="col-4">Name</div>
-								<div class="col-8"><%= f.text_field :tourist_lastname %><%= f.text_field :tourist_firstname %></div>
+								<div class="col-lg-4">Name</div>
+								<div class="col-lg-8"><%= f.text_field :tourist_lastname %><%= f.text_field :tourist_firstname %></div>
 							</div>
 							<div class="row modalbox" >
-								<div class="col-4">Username</div>
-								<div class="col-8"><%= f.text_field :tourist_username %></div>
+								<div class="col-lg-4">Username</div>
+								<div class="col-lg-8"><%= f.text_field :tourist_username %></div>
 							</div>
 							<div class="row modalbox">
-								<div class="col-4">Gender</div>
-								<div class="col-8">
+								<div class="col-lg-4">Gender</div>
+								<div class="col-lg-8">
 							    <label><%= f.radio_button :tourist_gender, 1 %>male</label>
 							    <label><%= f.radio_button :tourist_gender, 2 %>female</label>
 							    <label><%= f.radio_button :tourist_gender, 3 %>other</label>
 								</div>
 							</div>
 							<div class="row modalbox">
-								<div class="col-4">Age</div>
-								<div class="col-8"><%= f.text_field :tourist_age %></div>
+								<div class="col-lg-4">Age</div>
+								<div class="col-lg-8"><%= f.text_field :tourist_age %></div>
 							</div>
 							<div class="row modalbox">
-								<div class="col-4">About me</div>
-								<div class="col-8"><%= f.text_field :tourist_about_me %></div>
+								<div class="col-lg-4">About me</div>
+								<div class="col-lg-8"><%= f.text_field :tourist_about_me %></div>
 							</div>
 							<div class="row modalbox">
-								<div class="col-4">travel date</div>
-								<div class="col-8"><%= f.date_field :fromdate %>-<%= f.date_field :todate %></div>
+								<div class="col-lg-4">travel date</div>
+								<div class="col-lg-8"><%= f.date_field :fromdate %>-<%= f.date_field :todate %></div>
 							</div>
 							<div class="row modalbox">
-								<div class="col-4">Native language</div>
-								<div class="col-8">
+								<div class="col-lg-4">Native language</div>
+								<div class="col-lg-8">
 									<%= f.fields_for :tourist_native_launguages do |tourist_native_launguage| %>
 										<%= render "tourist_native_launguage_fields", f: tourist_native_launguage %>
 									<% end %>
@@ -118,8 +120,8 @@
 								</div>
 							</div>
 							<div class="row modalbox">
-								<div class="col-4">Nationality</div>
-								<div class="col-8">
+								<div class="col-lg-4">Nationality</div>
+								<div class="col-lg-8">
 									<%= f.fields_for :tourist_native_countries do |tourist_native_country| %>
 										<%= render "tourist_native_country_fields", f: tourist_native_country %>
 									<% end %>
@@ -128,8 +130,8 @@
 								</div>
 							</div>
 							<div class="row modalbox">
-								<div class="col-4">Placticing language</div>
-								<div class="col-8">
+								<div class="col-lg-4">Placticing language</div>
+								<div class="col-lg-8">
 									<%= f.fields_for :tourist_practicing_launguages do |tourist_practicing_launguage| %>
 										<%= render "tourist_practicing_launguage_fields", f: tourist_practicing_launguage %>
 									<% end %>
@@ -138,8 +140,8 @@
 								</div>
 							</div>
 							<div class="row modalbox">
-								<div class="col-4">Want to travel to</div>
-								<div class="col-8">
+								<div class="col-lg-4">Want to travel to</div>
+								<div class="col-lg-8">
 									<%= f.fields_for :tourist_sightseeing_places do |tourist_sightseeing_place| %>
 										<%= render "tourist_sightseeing_place_fields", f: tourist_sightseeing_place %>
 									<% end %>
@@ -147,7 +149,7 @@
 										<%= link_to_add_association "+", f, :tourist_sightseeing_places %></div>
 								</div>
 							</div>
-							<%= f.submit "Update", class:"btn btn-warning" %>
+							<%= f.submit "Update", class:"btn btn-outline-secondary btn-block" %>
 						</div>
 					</div>
 					<% end %>

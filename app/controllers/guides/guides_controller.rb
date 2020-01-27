@@ -35,7 +35,11 @@ class Guides::GuidesController < ApplicationController
     redirect_to mypage_guide_path(@guide)
   end
 
-
+  def destroy
+    @guide = Guide.find(params[:id])
+    @guide.destroy
+    redirect_to admins_users_index_path
+  end
 
   private
 

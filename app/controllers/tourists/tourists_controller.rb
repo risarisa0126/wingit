@@ -34,6 +34,11 @@ class Tourists::TouristsController < ApplicationController
     redirect_to mypage_tourist_path(@tourist)
   end
 
+  def destroy
+    @tourist = Tourist.find(params[:id])
+    @tourist.destroy
+    redirect_to admins_users_index_path
+  end
 
 
   private

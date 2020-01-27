@@ -5,13 +5,13 @@ class Tourist < ApplicationRecord
          :recoverable, :rememberable, :validatable
          # :confirmable
 
-  has_many :tourist_pictures
-  has_many :tourist_native_countries
-  has_many :tourist_native_launguages
-  has_many :tourist_practicing_launguages
-  has_many :tourist_sightseeing_places
-  has_many :favorites
-  has_many :reviews
+  has_many :tourist_pictures, dependent: :destroy
+  has_many :tourist_native_countries, dependent: :destroy
+  has_many :tourist_native_launguages, dependent: :destroy
+  has_many :tourist_practicing_launguages, dependent: :destroy
+  has_many :tourist_sightseeing_places, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+  has_many :reviews, dependent: :destroy
   has_many :rooms
   attachment :tourist_profile_image
 

@@ -14,6 +14,7 @@
 					    <td class="active"><%= guide.guide_firstname %></td>
 					    <td class="active"><%= guide.email %></td>
 					    <td class="active"><%= guide.guide_age %></td>
+					    <td><%= link_to "退会させる", guide_path(guide), method: :delete, data: {confirm: '本当に退会させますか？'}, class:"btn btn-danger btn-sm" %></td>
 			　			</tr>
 					</div>
 				<% end %>
@@ -30,17 +31,11 @@
 					    <td class="active"><%= tourist.tourist_firstname %></td>
 					    <td class="active"><%= tourist.email %></td>
 					    <td class="active"><%= tourist.tourist_age %></td>
+					    <td class="active"></td><%= link_to "退会させる", tourist_path(tourist), method: :delete, data: {confirm: '本当に退会させますか？'}, class:"btn btn-danger btn-sm" %></td>
 			　			</tr>
 					</div>
 				<% end %>
 		</div>
 	</div>
+	<%= link_to "logout", destroy_admin_session_path, method: :delete %>
 </div>
-
-
-
-
-
-
-
-<%= link_to "logout", destroy_admin_session_path, method: :delete %>

@@ -3,6 +3,9 @@
 <div class="container">
 	<div class="row">
 		<div class="col">
+
+
+
 			<%= search_form_for @q do |f| %>
 				place
 				<%= f.search_field :tourist_sightseeing_places_sightseeing_place_cont %>
@@ -10,9 +13,14 @@
 				  <%= f.number_field :tourist_age_gteq %>〜
 				  <%= f.number_field :tourist_age_lt %>
 				gender
+				<div class="form-check form-check-inline">
 			　<%= f.radio_button :tourist_gender_eq, '', {:checked => true} %>blank
 			  <%= f.radio_button :tourist_gender_eq, 1 %>male
 			  <%= f.radio_button :tourist_gender_eq, 2 %>female
+			</div>
+
+
+
 		</div>
 	</div>
 		<div class="row">

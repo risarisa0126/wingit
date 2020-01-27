@@ -21,6 +21,7 @@ h1{
   height: 100%;
   background-color: #fff;
 }
+
 main {
   height: 100%;
   // background-color: red;
@@ -73,7 +74,7 @@ side {
   width: 250px;
   height: 100%;
   padding-top: 100px;
-  background-color: #CCC;
+  background-color: #F0F8FF;
   position: fixed;
   top: 0;
   right: 0;
@@ -84,25 +85,28 @@ side {
 side.open {
   transform: translateZ(0);
 }
-side li {
-  text-align: center;
-  padding: 10px 0;
-  text-decoration: none;
-  color: #fff;
-}
 
-ul {
+side .inner {
+  padding: 25px;
+}
+side .inner ul {
   list-style: none;
-  text-decoration: none;
   margin: 0;
   padding: 0;
 }
-
-
-// body {
-//   margin-top: 80px;
-//   background-image: url("bg.png");
-//   background-size: cover;
-//     background-repeat: no-repeat;
-//   background-attachment: fixed;
-// }
+side .inner ul li {
+  position: relative;
+  margin: 0;
+  border-bottom: 1px solid #333;
+}
+side .inner ul li a {
+  display: block;
+  color: #333;
+  font-size: 14px;
+  padding: 1em;
+  text-decoration: none;
+  transition-duration: 0.2s;
+}
+side .inner ul li a:hover {
+  background: #fff;
+}
