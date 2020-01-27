@@ -16,12 +16,12 @@
 						<br>
 						<% if guide_signed_in? %>
 							<% if @room.exists? %>
-								<%= link_to "チャットする", room_path(current_guide.rooms.find_by(tourist_id: @tourist.id)), class: "btn btn-outline-danger" %>
+								<%= link_to "チャットをつづける", room_path(current_guide.rooms.find_by(tourist_id: @tourist.id)), class: "btn btn-outline-danger" %>
 							<% else %>
 				    		<%= form_for [:tourist, @newroom], url: rooms_path do |f| %>
 				      		<%= f.hidden_field :tourist_id, :value => @tourist.id %>
 				        	<%= button_tag(class: "btn btn-outline-danger") do %>
-				          	<%= content_tag :span, "チャットをつづける" %>
+				          	<%= content_tag :span, "チャットをする" %>
 				        	<% end %>
 				    		<% end %>
 				  		<% end %>
