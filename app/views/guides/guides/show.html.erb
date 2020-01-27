@@ -13,12 +13,12 @@
 						<br>
 						<% if tourist_signed_in? %>
 							<% if @room.exists? %>
-								<%= link_to "do chat", room_path(current_tourist.rooms.find_by(guide_id: @guide.id)), class: "btn btn-outline-danger" %>
+								<%= link_to "keep chat", room_path(current_tourist.rooms.find_by(guide_id: @guide.id)), class: "btn btn-outline-danger" %>
 							<% else %>
 					  		<%= form_for [:guide, @newroom], url: rooms_path do |f| %>
 					    		<%= f.hidden_field :guide_id, :value => @guide.id %>
 					      	<%= button_tag(class: "btn btn-outline-danger") do %>
-					        	<%= content_tag :span, "keep chat" %>
+					        	<%= content_tag :span, "do chat" %>
 					      	<% end %>
 					  		<% end %>
 							<% end %>
