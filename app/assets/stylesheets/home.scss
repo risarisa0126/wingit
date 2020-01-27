@@ -97,9 +97,20 @@ h6 {
 
 .circle {
   opacity: .4;
-  background: #0af;
+  background-color: bisque;
   height: 50%;
   border-radius: 85%;
   margin: 15px;
-  opacity:  .1;
+}
+
+.about-title{
+  text-align: center;
+  color: black;
+  font-size :850%;
+}
+
+.about-content{
+  text-align: center;
+  font-size :120%;
+  padding-top: 30px;
 }
