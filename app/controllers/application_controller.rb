@@ -50,6 +50,4 @@ def configure_permitted_parameters
    	   :tourist_firstname, :tourist_lastname, :tourist_username, :tourist_gender, :tourist_age,
    	   :tourist_profile_image, :tourist_about_me, :fromdate, :todate])
 end
-
-
 end

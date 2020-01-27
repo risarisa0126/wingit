@@ -23,7 +23,7 @@ class Tourists::TouristsController < ApplicationController
   end
 
   def mypage
-  	# @tourist.tourist_native_launguages.build
+   # @tourist.tourist_native_launguages.build
    #  @tourist.tourist_native_countries.build
    #  @tourist.tourist_practicing_launguages.build
    #  @tourist.tourist_sightseeing_places.build
@@ -61,5 +61,4 @@ class Tourists::TouristsController < ApplicationController
   								tourist_practicing_launguages_attributes: [:id, :tourist_practicing, :_destroy],
   								tourist_sightseeing_places_attributes: [:id, :sightseeing_place, :_destroy])
   end
-
 end
