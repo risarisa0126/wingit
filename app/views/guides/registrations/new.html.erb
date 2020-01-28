@@ -1,66 +1,66 @@
-<div class="mx-auto" style="width: 200px;">
-  <h2>ガイド登録</h2>
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
+<div class="row">
+  <div class="col-12 col-lg-6 offset-lg-3">
+    <div class="card">
+      <div class="card text-center">
+        <h2 class="card-header">ガイド登録</h2>
+      </div>
+      <div class="card-body">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+          <div class="row">
+            <div class="col-6">
+              <p class="registration-p">姓</p>
+              <%= f.text_field :guide_lastname, class: 'form-control' %>
+            </div>
+            <div class="col-6">
+              <p class="registration-p">名</p>
+              <%= f.text_field :guide_firstname, class: 'form-control' %>
+            </div>
+          </div>
+          <p class="registration-p">ユーザー名</p>
+            <%= f.text_field :guide_username, class: 'form-control' %>
+          <div class="row">
+            <div class="col-6">
+              <p class="registration-p">性別</p>
+                <label><%= f.label :男 %></label>
+                  <%= f.radio_button :guide_gender, "男" %>
+                <label><%= f.label :女 %></label>
+                  <%= f.radio_button :guide_gender, "女" %>
+                <label><%= f.label :その他 %></label>
+                  <%= f.radio_button :guide_gender, "その他" %>
+            </div>
+            <div class="col-6">
+              <p class="registration-p">年齢</p>
+              <%= f.text_field :guide_age, class: 'form-control' %>
+            </div>
+          </div>
+          <p class="registration-p">プロフィール画像</p>
+            <%= f.file_field :guide_profile_image %>
+          <p class="registration-p">自己紹介</p>
+            <%= f.text_field :guide_about_me, class: 'form-control' %>
+          <p class="registration-p">メールアドレス</p>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+          <div class="row">
+            <div class="col-6">
+              <p class="registration-p">パスワード (6文字以上)</p>
+              <%= f.password_field :password, autocomplete: "new-password", placeholder:"password", class: 'form-control'%>
+            </div>
+            <div class="col-6">
+              <p class="registration-p">パスワード確認</p>
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"password", class: 'form-control' %>
+            </div>
+          </div>
+        </div>
 
-      <div class="field">
-        <%= f.label :性 %>
-        <%= f.text_field :guide_lastname, autofocus: true %>
+        <div class="card-footer">
+          <%= f.submit "登録する", class: 'form-control btn-outline-secondary' %>
+          <% end %>
+        </div>
       </div>
-      <div class="field">
-        <%= f.label :名 %>
-        <%= f.text_field :guide_firstname, autofocus: true %>
+      <div class="other-register">
+        <%= link_to "Are you tourist?", new_tourist_registration_path, class: "btn btn-outline-danger form-control"%>
       </div>
-
-      <div class="field">
-        <%= f.label :ニックネーム %>
-        <%= f.text_field :guide_username, autofocus: true %>
-      </div>
-      <div class="field">
-        <label><%= f.label :男 %></label>
-          <%= f.radio_button :guide_gender, "男" %>
-        <label><%= f.label :女 %></label>
-          <%= f.radio_button :guide_gender, "女" %>
-        <label><%= f.label :その他 %></label>
-          <%= f.radio_button :guide_gender, "その他" %>
-      </div>
-      <div class="field">
-        <%= f.label :年齢 %>(半角)
-          <%= f.text_field :guide_age, autofocus: true %>
-      </div>
-      <div class="field">
-        <%= f.label :プロフィール写真 %>
-        <%= f.file_field :guide_profile_image, size:10, maxlength:15 %>
-      </div>
-      <div class="field">
-        <%= f.label :自己紹介 %>
-        <%= f.text_field :guide_about_me, autofocus: true %>
-      </div>
-
-      <div class="field">
-        <%= f.label :メールアドレス %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-      </div>
-
-      <div class="field">
-        <%= f.label :パスワード %>
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "new-password" %>
-      </div>
-
-      <div class="field">
-        <%= f.label :パスワード確認 %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
-      </div>
-
-      <div class="actions">
-        <%= f.submit "アカウント登録" %>
-      </div>
-    <% end %>
-
-    <%= render "guides/shared/links" %>
-    <%= link_to "Are you tourist?", new_tourist_registration_path, class:"btn btn-outline-danger"%>
-
     </div>
+  </div>
+</div>
+

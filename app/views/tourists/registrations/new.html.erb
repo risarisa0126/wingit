@@ -1,68 +1,75 @@
-<div class="mx-auto" style="width: 200px;">
-  <h2>tourist sign up</h2>
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
+<div class="row">
+  <div class="col-12 col-lg-6 offset-lg-3">
+    <div class="card">
+      <div class="card text-center">
+        <h2 class="card-header">tourist sign up</h2>
+      </div>
+      <div class="card-body">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+          <div class="row">
+            <div class="col-6">
+              <p class="registration-p">Firstname</p>
+              <%= f.text_field :tourist_firstname, class: 'form-control' %>
+            </div>
+            <div class="col-6">
+              <p class="registration-p">Lastname</p>
+              <%= f.text_field :tourist_lastname, class: 'form-control' %>
+            </div>
+          </div>
+          <p class="registration-p">Username</p>
+            <%= f.text_field :tourist_username, class: 'form-control' %>
+          <div class="row">
+            <div class="col-6">
+              <p class="registration-p">Gender</p>
+                <label><%= f.label :male %></label>
+                  <%= f.radio_button :tourist_gender, "male" %>
+                <label><%= f.label :female %></label>
+                  <%= f.radio_button :tourist_gender, "female" %>
+                <label><%= f.label :other %></label>
+                  <%= f.radio_button :tourist_gender, "other" %>
+            </div>
+            <div class="col-6">
+              <p class="registration-p">Age</p>
+              <%= f.text_field :tourist_age, class: 'form-control' %>
+            </div>
+          </div>
+          <p class="registration-p">Profile-image</p>
+            <%= f.file_field :tourist_profile_image %>
+          <p class="registration-p">About me</p>
+            <%= f.text_field :tourist_about_me, class: 'form-control' %>
+          <div class="row">
+            <div class="col-6">
+              <p class="registration-p">Travel date from ~</p>
+              <%= f.date_field :fromdate, class: 'form-control'%>
+            </div>
+            <div class="col-6">
+              <p class="registration-p">to</p>
+              <%= f.date_field :todate, class: 'form-control'%>
+            </div>
+          </div>
+          <p class="registration-p">Email</p>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+          <div class="row">
+            <div class="col-6">
+              <p class="registration-p">password (more than 6)</p>
+              <%= f.password_field :password, autocomplete: "new-password", placeholder:"password", class: 'form-control'%>
+            </div>
+            <div class="col-6">
+              <p class="registration-p">password confirmation</p>
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"password", class: 'form-control' %>
+            </div>
+          </div>
+        </div>
 
-      <div class="field">
-        <%= f.label :tourist_lastname %>
-        <%= f.text_field :tourist_lastname, autofocus: true %>
+        <div class="card-footer">
+          <%= f.submit "Sign up", class: 'form-control btn-outline-secondary' %>
+          <% end %>
+        </div>
       </div>
-      <div class="field">
-        <%= f.label :tourist_firstname %>
-        <%= f.text_field :tourist_firstname, autofocus: true %>
+      <div class="other-register">
+        <%= link_to "guideの方はこちら", new_guide_registration_path, class: "btn btn-outline-danger form-control"%>
       </div>
-      <div class="field">
-        <%= f.label :tourist_username %>
-        <%= f.text_field :tourist_username, autofocus: true %>
-      </div>
-      <div class="field">
-        <label><%= f.label :male %></label>
-          <%= f.radio_button :tourist_gender, "male" %>
-        <label><%= f.label :female %></label>
-          <%= f.radio_button :tourist_gender, "female" %>
-        <label><%= f.label :other %></label>
-          <%= f.radio_button :tourist_gender, "other" %>
-      </div>
-      <div class="field">
-        <%= f.label :tourist_age %>
-          <%= f.text_field :tourist_age, autofocus: true %>
-      </div>
-      <div class="field">
-        <%= f.label :tourist_profile_image %>
-        <%= f.file_field :tourist_profile_image, size:10, maxlength:15 %>
-      </div>
-      <div class="field">
-        <%= f.label :tourist_about_me %>
-        <%= f.text_field :tourist_about_me, autofocus: true %>
-      </div>
-      <div class="field">
-        <%= f.label :fromdate %>
-        <%= f.date_field :fromdate%>
-      </div>
-      <div class="field">
-        <%= f.label :todate %>
-        <%= f.date_field :todate%>
-      </div>
-      <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-      </div>
-      <div class="field">
-        <%= f.label :password %>
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "new-password" %>
-      </div>
-      <div class="field">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-      </div>
-      <div class="actions">
-        <%= f.submit "Sign up" %>
-      </div>
-    <% end %>
-
-    <%= render "tourists/shared/links" %>
-    <%= link_to "guideの方はこちら", new_guide_registration_path, class:"btn btn-outline-danger"%>
+    </div>
+  </div>
 </div>
