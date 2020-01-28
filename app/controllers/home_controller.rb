@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def top
-  	@guides = Guide.order("random()").limit(6)
-  	@tourists = Tourist.order("random()").limit(6)
+  	@guides = Guide.order("RAND()").limit(6)
+  	@tourists = Tourist.order("RAND()").limit(6)
   end
 
   def about
