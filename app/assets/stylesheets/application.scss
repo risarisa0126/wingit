@@ -6,11 +6,23 @@
 @import "messages.scss";
 
 
+@media screen { #filename { display: none; } }
+
 h1{
   margin-top: 50px;
 	padding: 50px;
 	text-align: center;
   text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+}
+
+.registration-p{
+  font-size: 20px;
+  margin-bottom: 0;
+  margin-top: 10px;
+}
+
+.other-register{
+  margin: 80px;
 }
 
 .wrapper {
