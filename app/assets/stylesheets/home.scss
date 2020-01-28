@@ -6,6 +6,11 @@
 //   background-color: grey;
 // }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 .top{
   display: flex;
@@ -55,7 +60,7 @@ h6 {
 .button-box{
   text-align: center;
 }
-.button {
+.button-A {
   margin: 70px;
   padding: 21px 0 19px;
   border-radius: 25px;
@@ -70,7 +75,7 @@ h6 {
   -webkit-transition: all .4s;
   transition: all .4s;
 }
-.button:hover{
+.button-A:hover{
   color: #fff;
   background-color: #CCC;
   text-decoration: none;
@@ -113,4 +118,51 @@ h6 {
   text-align: center;
   font-size :120%;
   padding-top: 30px;
+}
+
+.toppage-box{
+  margin: 100px 0px 100px;;
+  position: relative;
+  background-color: #F0F8FF;
+  width: 100%;
+  height: 600px;
+}
+
+.toppage-inner-box{
+  text-align: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 80%;
+  height: 80%;
+  background-color: #fff;
+  border-radius: 5%;
+}
+
+.toppage-inner-content{
+  font-family: serif;
+}
+
+.button-B {
+  margin: 30px;
+  border-radius: 25px;
+  display: inline-block;
+  width: 200px;
+  background-color: #fff;
+  border: 2px solid #CCC;
+  color: #999;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all .4s;
+  transition: all .4s;
+}
+.button-B:hover{
+  color: #fff;
+  background-color: #CCC;
+  text-decoration: none;
+
 }

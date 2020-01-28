@@ -10,7 +10,11 @@
 		<div class="col-7">
 			<div class="row modalbox">
 				<div class="col-lg-4">Name</div>
-				<div class="col-lg-8"><%= @tourist.tourist_username %>.(<%= @tourist.tourist_age %>)</div>
+				<div class="col-lg-8"><%= @tourist.tourist_firstname %> <%= @tourist.tourist_lastname %>(<%= @tourist.tourist_age %>)</div>
+			</div>
+			<div class="row modalbox">
+				<div class="col-lg-4">Userame</div>
+				<div class="col-lg-8"><%= @tourist.tourist_username %></div>
 			</div>
 			<div class="row modalbox">
 				<div class="col-lg-4">Gender</div>

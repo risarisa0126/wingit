@@ -2,10 +2,10 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col">
+		<div class="col-12 offset-lg-2">
 			<%= search_form_for @q do |f| %>
 				place
-				<%= f.search_field :able_to_guide_places_guide_place_cont %>
+				<%= f.collection_select :able_to_guide_places_guide_place_cont, @able_to_guide_places, :id, :guide_place, :include_blank => '---' %>
 				age
 				  <%= f.number_field :guide_age_gteq %>〜
 				  <%= f.number_field :guide_age_lt %>
@@ -16,11 +16,11 @@
 		</div>
 	</div>
 		<div class="row">
-			<div class="col">
+			<div class="col-12 offset-lg-2">
 				date
 				<%= f.date_field :dayofweeks_day_gteq, include_blank: true %>
 			  placticing language
-			  <%= f.search_field :guide_practicing_launguages_guide_practicing_cont %>
+				<%= f.collection_select :guide_practicing_launguages_guide_practicing_cont, @guide_practicing_launguages, :id, :guide_practicing, :include_blank => '---' %>
 			  <%= f.submit "serch" %>
 			<% end %>
 		</div>

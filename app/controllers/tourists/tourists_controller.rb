@@ -5,6 +5,8 @@ class Tourists::TouristsController < ApplicationController
 
   def index
     @q = Tourist.includes(:tourist_sightseeing_places, :tourist_practicing_launguages).ransack(params[:q])
+    @tourist_sightseeing_places = TouristSightseeingPlace.all
+    @tourist_practicing_launguages = TouristPracticingLaunguage.all
     @tourists = @q.result(distinct: true).page(params[:page]).per(12).order("created_at DESC")
   end
 
@@ -55,7 +57,7 @@ class Tourists::TouristsController < ApplicationController
   end
 
   def tourist_params
-  params.require(:tourist).permit(:id, :tourist_lastname, :tourist_firstname, :tourist_username, :tourist_gender, :tourist_age, :tourist_about_me,
+  params.require(:tourist).permit(:id, :tourist_profile_image, :tourist_lastname, :tourist_firstname, :tourist_username, :tourist_gender, :tourist_age, :tourist_about_me,
   								tourist_native_launguages_attributes: [:id, :tourist_language, :_destroy],
   								tourist_native_countries_attributes: [:id, :tourist_country, :_destroy],
   								tourist_practicing_launguages_attributes: [:id, :tourist_practicing, :_destroy],

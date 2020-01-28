@@ -1,4 +1,4 @@
-<h1>mypage</h1>
+<h1>マイページ</h1>
 
 <div class="container-fluid">
  	<div class="row">
@@ -9,19 +9,23 @@
 		</div>
 		<div class="col-7">
 			<div class="row modalbox">
-				<div class="col-lg-4">Name</div>
-				<div class="col-lg-8"><%= @guide.guide_username %>.(<%= @guide.guide_age %>)</div>
+				<div class="col-lg-4">名前</div>
+				<div class="col-lg-8"><%= @guide.guide_lastname %> <%= @guide.guide_firstname %>(<%= @guide.guide_age %>)</div>
 			</div>
 			<div class="row modalbox">
-				<div class="col-lg-4">Gender</div>
+				<div class="col-lg-4">ユーザー名</div>
+				<div class="col-lg-8"><%= @guide.guide_username %></div>
+			</div>
+			<div class="row modalbox">
+				<div class="col-lg-4">性別</div>
 				<div class="col-lg-8"><%= @guide.guide_gender %></div>
 			</div>
 			<div class="row modalbox">
-				<div class="col-lg-4">About me</div>
+				<div class="col-lg-4">自己紹介</div>
 				<div class="col-lg-8"><%= @guide.guide_about_me %></div>
 			</div>
 			<div class="row modalbox">
-				<div class="col-lg-4">Nationality</div>
+				<div class="col-lg-4">出身国</div>
 				<div class="col-lg-8">
 					<% @guide.guide_native_countries.each do |country| %>
 						<%= country.guide_country %>
@@ -29,7 +33,7 @@
 				</div>
 			</div>
 			<div class="row modalbox">
-				<div class="col-lg-4">Native language</div>
+				<div class="col-lg-4">母国語</div>
 				<div class="col-lg-8">
 					<% @guide.guide_native_launguages.each do |language| %>
 						<%= language.guide_language %>
@@ -37,7 +41,7 @@
 				</div>
 			</div>
 			<div class="row modalbox">
-				<div class="col-lg-4">Placticing language</div>
+				<div class="col-lg-4">学習言語</div>
 				<div class="col-lg-8">
 					<% @guide.guide_practicing_launguages.each do |practicing| %>
 						<%= practicing.guide_practicing %>
@@ -45,7 +49,7 @@
 				</div>
 			</div>
 			<div class="row modalbox">
-				<div class="col-lg-4">Able to guide</div>
+				<div class="col-lg-4">案内地</div>
 				<div class="col-lg-8">
 					<% @guide.able_to_guide_places.each do |place| %>
 						<%= place.guide_place %>
@@ -53,10 +57,10 @@
 				</div>
 			</div>
 			<div class="row modalbox">
-				<div class="col-lg-4">Able to guide days</div>
+				<div class="col-lg-4">案内可能日</div>
 				<div class="col-lg-8">
 					<% @guide.dayofweeks.each do |days| %>
-						<%= days.day.strftime("%Y年%-m月%-d日 %a") %>
+						<%= days.day.strftime("%Y/%-m/%-d/ %a,") %>
 					<% end %>
 				</div>
 			</div>

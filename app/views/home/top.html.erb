@@ -1,5 +1,3 @@
-
-
 <div class="top top-image">
 	<div class="top-title">
 		<div class="row">
@@ -10,7 +8,6 @@
 		<p></p>
 	</div>
 </div>
-
 
 <h1>GUIDES</h1>
 <div class="row user-bigbox">
@@ -24,8 +21,19 @@
   <% end %>
 </div>
 <div class="button-box">
-	<%= link_to("See more", guides_path, {class: "button"}) %>
+	<%= link_to("See more", guides_path, {class: "button-A"}) %>
 </div>
+
+<div class="toppage-box">
+	<div class="toppage-inner-box">
+		<div class="toppage-inner-content">
+			<p style="margin-top:3%; font-size: 300%;">Are you looking for guide?</p>
+			<p style="font-size: 200%;">If you want, </p>
+			<p style="color:darkgrey;">travelmates / Japanese guide / Japanese friends ... </p>
+			<p style="font-size: 200%;">You can registrate here !</p>
+			<div class="button-box"><%= link_to("tourist registrate", new_tourist_registration_path, {class: "button-B"}) %></div>
+		</div>
+	</div>
 </div>
 
 
@@ -45,14 +53,18 @@
 		<%= link_to("See more", tourists_path, {class: "button"}) %>
 </div>
 
-<div class="row">
-	<div class="col-lg-6">
-		<div class="button-box"><%= link_to("ガイド登録する", new_guide_registration_path, {class: "button"}) %></div>
-	</div>
-	<div class="col-lg-6">
-		<div class="button-box"><%= link_to("tourist registrate", new_tourist_registration_path, {class: "button"}) %></div>
+<div class="toppage-box" style="background-color:#FFE8EC;">
+	<div class="toppage-inner-box">
+		<div class="toppage-inner-content">
+			<p style="margin-top:3%; font-size: 300%;">国際交流しませんか？</p>
+			<p style="font-size: 200%;">もしあなたが、 </p>
+			<p style="color:darkgrey;">出身地に詳しい / 新しい言語を勉強したい / 外国人の友達が欲しい なら... </p>
+			<p style="font-size: 200%;">登録しましょう！</p>
+			<div class="button-box"><%= link_to("tourist registrate", new_guide_registration_path, {class: "button-B"}) %></div>
+		</div>
 	</div>
 </div>
+
 
 
 

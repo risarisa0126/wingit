@@ -5,6 +5,8 @@ class Guides::GuidesController < ApplicationController
 
   def index
     @q = Guide.includes(:able_to_guide_places, :guide_practicing_launguages, :dayofweeks).ransack(params[:q])
+    @able_to_guide_places = AbleToGuidePlace.all
+    @guide_practicing_launguages = GuidePracticingLaunguage.all
     @guides = @q.result(distinct: true).page(params[:page]).per(12).order("created_at DESC")
   end
 
@@ -55,7 +57,7 @@ class Guides::GuidesController < ApplicationController
   end
 
   def guide_params
-  params.require(:guide).permit(:id, :guide_lastname, :guide_firstname, :guide_username, :guide_gender, :guide_age, :guide_about_me,
+  params.require(:guide).permit(:id, :guide_profile_image, :guide_lastname, :guide_firstname, :guide_username, :guide_gender, :guide_age, :guide_about_me,
   								able_to_guide_places_attributes: [:id, :guide_place, :_destroy],
                   guide_native_launguages_attributes: [:id, :guide_language, :_destroy],
   								guide_native_countries_attributes: [:id, :guide_country, :_destroy],

@@ -1,28 +1,28 @@
-<h1>tourists</h1>
+<h1>観光者を探す</h1>
 
 <div class="container">
 	<div class="row">
-		<div class="col">
+		<div class="col-12 offset-lg-2">
 			<%= search_form_for @q do |f| %>
-				place
-				<%= f.search_field :tourist_sightseeing_places_sightseeing_place_cont %>
-				age
+				観光地
+				<%= f.collection_select :tourist_sightseeing_places_sightseeing_place_cont, @tourist_sightseeing_places, :id, :sightseeing_place, :include_blank => '---' %>
+				年齢
 				  <%= f.number_field :tourist_age_gteq %>〜
 				  <%= f.number_field :tourist_age_lt %>
-				gender
+				性別
 				<div class="form-check form-check-inline">
-				　<%= f.radio_button :tourist_gender_eq, '', {:checked => true} %>blank
-				  <%= f.radio_button :tourist_gender_eq, 1 %>male
-				  <%= f.radio_button :tourist_gender_eq, 2 %>female
+				　<%= f.radio_button :tourist_gender_eq, '', {:checked => true} %>特になし
+				  <%= f.radio_button :tourist_gender_eq, 1 %>男性
+				  <%= f.radio_button :tourist_gender_eq, 2 %>女性
 				</div>
 		</div>
 	</div>
 		<div class="row">
-			<div class="col">
-				dete
+			<div class="col-12 offset-lg-2">
+				日にち
 				<%= f.date_field :fromdate_gteq, include_blank: true %>~<%= f.date_field :todate_lteq, include_blank: true %>
-			  placticing language
-			  <%= f.search_field :tourist_practicing_launguages_tourist_practicing_cont %>
+			  学習言語
+			  <%= f.collection_select :tourist_practicing_launguages_tourist_practicing_cont , @tourist_practicing_launguages, :id, :tourist_practicing, :include_blank => '---' %>
 			  <%= f.submit "serch" %>
 			<% end %>
 		</div>
