@@ -64,5 +64,4 @@ class Guides::GuidesController < ApplicationController
   								guide_practicing_launguages_attributes: [:id, :guide_practicing, :_destroy],
                   dayofweeks_attributes: [:id, :day, :_destroy])
   end
-
 end

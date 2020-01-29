@@ -13,17 +13,17 @@ class Guide < ApplicationRecord
   has_many :guide_practicing_launguages, dependent: :destroy
   has_many :able_to_guide_places, dependent: :destroy
   has_many :dayofweeks, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+  has_many :reviews, dependent: :destroy
+  has_many :rooms, dependent: :destroy
+  attachment :guide_profile_image
+
 
   accepts_nested_attributes_for :guide_native_countries, allow_destroy: true
   accepts_nested_attributes_for :guide_native_launguages, allow_destroy: true
   accepts_nested_attributes_for :guide_practicing_launguages, allow_destroy: true
   accepts_nested_attributes_for :dayofweeks, allow_destroy: true
   accepts_nested_attributes_for :able_to_guide_places, allow_destroy: true
-
-  has_many :favorites, dependent: :destroy
-  has_many :reviews, dependent: :destroy
-  has_many :rooms, dependent: :destroy
-  attachment :guide_profile_image
 
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

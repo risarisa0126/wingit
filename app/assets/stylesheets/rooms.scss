@@ -15,6 +15,9 @@
   margin-top: 40px;
 }
 
+
+
+
 .message-form {
   text-align: center;
 }
@@ -28,7 +31,18 @@
   background: #BCF5A9;;
   border-radius: 15px;
   margin-left:60%;
+  // 文字の折り返し
+  word-break: break-all;
 }
+.guide-page-messages .guide-message-time {
+  text-align: right;
+  color: #CCC;
+  padding-top: 0px;
+  font-size: 1px;
+}
+
+
+
 .guide-page-messages .tourist-message {
   text-align: left;
   position: relative;
@@ -38,7 +52,17 @@
   background: #e0edff;
   border-radius: 15px;
   margin-right:60%;
+  word-break: break-all;
 }
+.guide-page-messages .tourist-message-time {
+  text-align: left;
+  color: #CCC;
+  padding-top: 0px;
+  font-size: 1px;
+}
+
+
+
 .tourist-page-messages .tourist-message {
   text-align: right;
   position: relative;
@@ -48,7 +72,17 @@
   background: #BCF5A9;
   border-radius: 15px;
   margin-left:60%;
+  word-break: break-all;
 }
+.tourist-page-messages .tourist-message-time {
+  text-align: right;
+  color: #CCC;
+  padding-top: 0px;
+  font-size: 1px;
+}
+
+
+
 .tourist-page-messages .guide-message {
   text-align: left;
   position: relative;
@@ -58,6 +92,13 @@
   background: #e0edff;
   border-radius: 15px;
   margin-right:60%;
+  word-break: break-all;
+}
+.tourist-page-messages .guide-message-time {
+  text-align: left;
+  color: #CCC;
+  padding-top: 0px;
+  font-size: 1px;
 }
 
 // .balloon1:before {

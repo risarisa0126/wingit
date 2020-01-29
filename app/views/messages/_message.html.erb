@@ -1,12 +1,7 @@
-
 <% if message.is_guide %>
-	<p class="guide-message">
-		<%= message.body %>
-	</p>
+	<p class="guide-message"><%= message.body %></p>
+	<p class="guide-message-time"><%= message.created_at.strftime("%Y-%m-%d %H:%M") %></p>
 <% else %>
-	<p class="tourist-message">
-		<%= message.body %>
-	</p>
+	<p class="tourist-message"><%= message.body %></p>
+	<p class="tourist-message-time"><%= message.created_at.strftime("%Y-%m-%d %H:%M") %></p>
 <% end %>
-
-

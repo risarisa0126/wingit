@@ -33,7 +33,7 @@ def after_sign_in_path_for(resource)
   when Tourist
     mypage_tourist_path(resource.id)
   when Admin
-  	admins_users_index_path(resource.id)
+  	admins_users_index_path
   end
 end
 

@@ -60,7 +60,7 @@
 				<div class="col-lg-4">案内可能日</div>
 				<div class="col-lg-8">
 					<% @guide.dayofweeks.each do |days| %>
-						<%= days.day.strftime("%Y/%-m/%-d/ %a,") %>
+						<%= days.day.strftime("%Y/%m/%d/ %a,") %>
 					<% end %>
 				</div>
 			</div>
@@ -101,11 +101,11 @@
 								<div class="col-lg-4">性別</div>
 								<div class="col-lg-8">
 							    <label><%= f.label :男 %></label>
-					          <%= f.radio_button :guide_gender, "男" %>
-					        <label><%= f.label :女 %></label>
-					          <%= f.radio_button :guide_gender, "女" %>
-					        <label><%= f.label :その他 %></label>
-					          <%= f.radio_button :guide_gender, "その他" %>
+                  <%= f.radio_button :guide_gender, "男" %>
+                <label><%= f.label :女 %></label>
+                  <%= f.radio_button :guide_gender, "女" %>
+                <label><%= f.label :その他 %></label>
+                  <%= f.radio_button :guide_gender, "その他" %>
 								</div>
 							</div>
 							<div class="row modalbox">

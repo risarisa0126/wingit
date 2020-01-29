@@ -21,7 +21,7 @@
 
 
 
-$(document).ready(function () {
+$(document).on('turbolinks:load', function(){
 	$('.menu-trigger').on('click',function(){
 	    if($(this).hasClass('active')){
 	      $(this).removeClass('active');
@@ -43,4 +43,4 @@ $(document).ready(function () {
 	      $('side').removeClass('open');
 	    }
 	  });
-});
+})

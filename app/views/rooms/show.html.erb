@@ -12,8 +12,12 @@
 	<% end %>
 
 	<div id="bms_send" class="message-form">
-		<div id="bms_send_message"><input type="text" id="chat-input" data-behavior="room_speaker"></div>
+		<div id="bms_send_message">
+			<input type="text" id="chat-input" data-behavior="room_speaker" class="speaker_txt">
+		</div>
+			<!-- <button class="chat_sendbtn" data-behavior="room_speaker">送信</button> -->
 	</div>
+
 	<div id="room_id" data-room_id="<%= @room.id %>"></div>
 		<% if guide_signed_in? %>
 			<div id="current_guide_id" data-guide_id="<%= current_guide.id %>"></div>
