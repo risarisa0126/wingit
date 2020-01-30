@@ -7,15 +7,15 @@ class Guide < ApplicationRecord
 
 
 
-  has_many :guide_pictures, dependent: :destroy
-  has_many :guide_native_countries, dependent: :destroy
-  has_many :guide_native_launguages, dependent: :destroy
-  has_many :guide_practicing_launguages, dependent: :destroy
-  has_many :able_to_guide_places, dependent: :destroy
-  has_many :dayofweeks, dependent: :destroy
-  has_many :favorites, dependent: :destroy
-  has_many :reviews, dependent: :destroy
-  has_many :rooms, dependent: :destroy
+  has_many :guide_pictures, foreign_key: :guide_id, dependent: :destroy
+  has_many :guide_native_countries, foreign_key: :guide_id, dependent: :destroy
+  has_many :guide_native_launguages, foreign_key: :guide_id, dependent: :destroy
+  has_many :guide_practicing_launguages, foreign_key: :guide_id, dependent: :destroy
+  has_many :able_to_guide_places, foreign_key: :guide_id, dependent: :destroy
+  has_many :dayofweeks, foreign_key: :guide_id, dependent: :destroy
+  has_many :favorites, foreign_key: :guide_id, dependent: :destroy
+  has_many :reviews, foreign_key: :guide_id, dependent: :destroy
+  has_many :rooms, foreign_key: :guide_id, dependent: :destroy
   attachment :guide_profile_image
 
 

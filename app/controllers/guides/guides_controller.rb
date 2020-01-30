@@ -5,8 +5,6 @@ class Guides::GuidesController < ApplicationController
 
   def index
     @q = Guide.includes(:able_to_guide_places, :guide_practicing_launguages, :dayofweeks).ransack(params[:q])
-    @able_to_guide_places = AbleToGuidePlace.all
-    @guide_practicing_launguages = GuidePracticingLaunguage.all
     @guides = @q.result(distinct: true).page(params[:page]).per(12).order("created_at DESC")
   end
 

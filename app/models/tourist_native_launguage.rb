@@ -1,3 +1,3 @@
 class TouristNativeLaunguage < ApplicationRecord
-  belongs_to :tourist
+  belongs_to :tourist, optional: true
 end

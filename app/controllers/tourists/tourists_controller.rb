@@ -5,8 +5,6 @@ class Tourists::TouristsController < ApplicationController
 
   def index
     @q = Tourist.includes(:tourist_sightseeing_places, :tourist_practicing_launguages).ransack(params[:q])
-    @tourist_sightseeing_places = TouristSightseeingPlace.all
-    @tourist_practicing_launguages = TouristPracticingLaunguage.all
     @tourists = @q.result(distinct: true).page(params[:page]).per(12).order("created_at DESC")
   end
 

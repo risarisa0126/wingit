@@ -5,14 +5,14 @@ class Tourist < ApplicationRecord
          :recoverable, :rememberable, :validatable
          # :confirmable
 
-  has_many :tourist_pictures, dependent: :destroy
-  has_many :tourist_native_countries, dependent: :destroy
-  has_many :tourist_native_launguages, dependent: :destroy
-  has_many :tourist_practicing_launguages, dependent: :destroy
-  has_many :tourist_sightseeing_places, dependent: :destroy
-  has_many :favorites, dependent: :destroy
-  has_many :reviews, dependent: :destroy
-  has_many :rooms, dependent: :destroy
+  has_many :tourist_pictures, foreign_key: :tourist_id, dependent: :destroy
+  has_many :tourist_native_countries, foreign_key: :tourist_id, dependent: :destroy
+  has_many :tourist_native_launguages, foreign_key: :tourist_id, dependent: :destroy
+  has_many :tourist_practicing_launguages, foreign_key: :tourist_id, dependent: :destroy
+  has_many :tourist_sightseeing_places, foreign_key: :tourist_id, dependent: :destroy
+  has_many :favorites, foreign_key: :tourist_id, dependent: :destroy
+  has_many :reviews, foreign_key: :tourist_id, dependent: :destroy
+  has_many :rooms, foreign_key: :tourist_id, dependent: :destroy
   attachment :tourist_profile_image
 
   accepts_nested_attributes_for :tourist_native_countries, allow_destroy: true

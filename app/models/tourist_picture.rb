@@ -1,4 +1,4 @@
 class TouristPicture < ApplicationRecord
-  belongs_to :tourist
+  belongs_to :tourist, optional: true
   attachment :picture
 end

@@ -2,28 +2,36 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col-12 offset-lg-2">
+		<div class="col-12">
 			<%= search_form_for @q do |f| %>
-				観光地
-				<%= f.collection_select :tourist_sightseeing_places_sightseeing_place_cont, @tourist_sightseeing_places, :id, :sightseeing_place, :include_blank => '---' %>
-				年齢
-				  <%= f.number_field :tourist_age_gteq %>〜
-				  <%= f.number_field :tourist_age_lt %>
-				性別
-				<div class="form-check form-check-inline">
-				　<%= f.radio_button :tourist_gender_eq, '', {:checked => true} %>特になし
-				  <%= f.radio_button :tourist_gender_eq, 1 %>男性
-				  <%= f.radio_button :tourist_gender_eq, 2 %>女性
+			<div class="row search-title">
+				<div class="col-2">
+					<p class="search-title">観光地</p>
+					<%= f.collection_select :tourist_sightseeing_places_sightseeing_place_cont, TouristSightseeingPlace.select(:sightseeing_place).distinct, :sightseeing_place, :sightseeing_place, :include_blank => '---' %>
 				</div>
-		</div>
-	</div>
-		<div class="row">
-			<div class="col-12 offset-lg-2">
-				日にち
-				<%= f.date_field :fromdate_gteq, include_blank: true %>~<%= f.date_field :todate_lteq, include_blank: true %>
-			  学習言語
-			  <%= f.collection_select :tourist_practicing_launguages_tourist_practicing_cont , @tourist_practicing_launguages, :id, :tourist_practicing, :include_blank => '---' %>
-			  <%= f.submit "serch" %>
+				<div class="col-2">
+					<p class="search-title">学習言語</p>
+					<%= f.collection_select :tourist_practicing_launguages_tourist_practicing_cont , TouristPracticingLaunguage.select(:tourist_practicing).distinct, :tourist_practicing, :tourist_practicing, :include_blank => '---' %>
+				</div>
+				<div class="col-2">
+					<p class="search-title">年齢</p>
+				  <%= f.number_field :tourist_age_gteq, min: 16, max: 59, size: 1 %>-
+				  <%= f.number_field :tourist_age_lt, min: 16, max: 59, size: 1 %>
+				</div>
+				<div class="col-2">
+					<p class="search-title">日にち</p>
+					<%= f.date_field :fromdate_gteq, include_blank: true %>~<%= f.date_field :todate_lteq, include_blank: true %>
+				</div>
+				<div class="col-2">
+					<p class="search-title">性別</p>
+					<%= f.radio_button :tourist_gender_eq, '', {:checked => true} %>blank
+					<%= f.radio_button :tourist_gender_eq, 1 %>male
+					<%= f.radio_button :tourist_gender_eq, 2 %>female
+				</div>
+				<div class="col-2 py-4">
+					<%= f.submit "検索", class: "form-control btn-outline-secondary" %>
+				</div>
+			</div>
 			<% end %>
 		</div>
 	</div>

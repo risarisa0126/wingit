@@ -2,26 +2,36 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col-12 offset-lg-2">
+		<div class="col-12">
 			<%= search_form_for @q do |f| %>
-				place
-				<%= f.collection_select :able_to_guide_places_guide_place_cont, @able_to_guide_places, :id, :guide_place, :include_blank => '---' %>
-				age
-				  <%= f.number_field :guide_age_gteq %>〜
-				  <%= f.number_field :guide_age_lt %>
-				gender
-			　<%= f.radio_button :guide_gender_eq, '', {:checked => true} %>blank
-			  <%= f.radio_button :guide_gender_eq, 1 %>male
-			  <%= f.radio_button :guide_gender_eq, 2 %>female
-		</div>
-	</div>
-		<div class="row">
-			<div class="col-12 offset-lg-2">
-				date
-				<%= f.date_field :dayofweeks_day_gteq, include_blank: true %>
-			  placticing language
-				<%= f.collection_select :guide_practicing_launguages_guide_practicing_cont, @guide_practicing_launguages, :id, :guide_practicing, :include_blank => '---' %>
-			  <%= f.submit "serch" %>
+			<div class="row search-title">
+				<div class="col-2">
+					<p class="search-title">place</p>
+					<%= f.collection_select :able_to_guide_places_guide_place_cont_any, AbleToGuidePlace.select(:guide_place).distinct, :guide_place, :guide_place, :include_blank => '---' %>
+				</div>s
+				<div class="col-2">
+					<p class="search-title">placticing language</p>
+					<%= f.collection_select :guide_practicing_launguages_guide_practicing_cont, GuidePracticingLaunguage.select(:guide_practicing).distinct, :guide_practicing, :guide_practicing, :include_blank => '---' %>
+				</div>
+				<div class="col-2">
+					<p class="search-title">age</p>
+				  <%= f.number_field :guide_age_gteq, min: 16, max: 59, size: 1 %>-
+				  <%= f.number_field :guide_age_lt, min: 16, max: 59, size: 1 %>
+				</div>
+				<div class="col-2">
+					<p class="search-title">date</p>
+					<%= f.date_field :dayofweeks_day_gteq, include_blank: true, selected: Date.today %>
+				</div>
+				<div class="col-2">
+					<p class="search-title">gender</p>
+					<%= f.radio_button :guide_gender_eq, '', {:checked => true} %>blank
+					<%= f.radio_button :guide_gender_eq, 1 %>male
+					<%= f.radio_button :guide_gender_eq, 2 %>female
+				</div>
+				<div class="col-2 py-4">
+					<%= f.submit "serch", class: "form-control btn-outline-secondary" %>
+				</div>
+			</div>
 			<% end %>
 		</div>
 	</div>

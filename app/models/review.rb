@@ -1,4 +1,4 @@
 class Review < ApplicationRecord
-  belongs_to :tourist
-  belongs_to :guide
+  belongs_to :tourist, optional: true
+  belongs_to :guide, optional: true
 end
