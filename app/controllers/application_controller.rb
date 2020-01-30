@@ -33,7 +33,7 @@ def after_sign_in_path_for(resource)
   when Tourist
     mypage_tourist_path(resource.id)
   when Admin
-  	admins_users_index_path
+    admins_users_index_path
   end
 end
 
@@ -47,7 +47,7 @@ protected
 def configure_permitted_parameters
       devise_parameter_sanitizer.permit(:sign_up, keys: [:guide_firstname, :guide_lastname, :guide_username,
        :guide_gender,:guide_age, :guide_profile_image, :guide_about_me,
-   	   :tourist_firstname, :tourist_lastname, :tourist_username, :tourist_gender, :tourist_age,
-   	   :tourist_profile_image, :tourist_about_me, :fromdate, :todate])
+           :tourist_firstname, :tourist_lastname, :tourist_username, :tourist_gender, :tourist_age,
+           :tourist_profile_image, :tourist_about_me, :fromdate, :todate])
 end
 end

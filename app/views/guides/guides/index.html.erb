@@ -8,7 +8,7 @@
 				<div class="col-2">
 					<p class="search-title">place</p>
 					<%= f.collection_select :able_to_guide_places_guide_place_cont_any, AbleToGuidePlace.select(:guide_place).distinct, :guide_place, :guide_place, :include_blank => '---' %>
-				</div>s
+				</div>
 				<div class="col-2">
 					<p class="search-title">placticing language</p>
 					<%= f.collection_select :guide_practicing_launguages_guide_practicing_cont, GuidePracticingLaunguage.select(:guide_practicing).distinct, :guide_practicing, :guide_practicing, :include_blank => '---' %>
