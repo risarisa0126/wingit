@@ -1,40 +1,38 @@
 <h1>GUIDES</h1>
 
 <div class="container">
+	<%= search_form_for @q do |f| %>
 	<div class="row">
-		<div class="col-12">
-			<%= search_form_for @q do |f| %>
-			<div class="row search-title">
-				<div class="col-2">
+		<div class="col-lg-10 col-12">
+			<div class="row">
+				<div class="col-lg-4 col-12">
 					<p class="search-title">place</p>
 					<%= f.collection_select :able_to_guide_places_guide_place_cont_any, AbleToGuidePlace.select(:guide_place).distinct, :guide_place, :guide_place, :include_blank => '---' %>
 				</div>
-				<div class="col-2">
+				<div class="col-lg-4 col-12">
 					<p class="search-title">placticing language</p>
 					<%= f.collection_select :guide_practicing_launguages_guide_practicing_cont, GuidePracticingLaunguage.select(:guide_practicing).distinct, :guide_practicing, :guide_practicing, :include_blank => '---' %>
 				</div>
-				<div class="col-2">
+				<div class="col-lg-4 col-12">
 					<p class="search-title">age</p>
 				  <%= f.number_field :guide_age_gteq, min: 16, max: 59, size: 1 %>-
 				  <%= f.number_field :guide_age_lt, min: 16, max: 59, size: 1 %>
 				</div>
-				<div class="col-2">
+				<div class="col-lg-6 mt-3 col-12">
 					<p class="search-title">date</p>
 					<%= f.date_field :dayofweeks_day_gteq, include_blank: true, selected: Date.today %>
 				</div>
-				<div class="col-2">
+				<div class="col-lg-6 mt-3 col-12">
 					<p class="search-title">gender</p>
 					<%= f.radio_button :guide_gender_eq, '', {:checked => true} %>blank
 					<%= f.radio_button :guide_gender_eq, 1 %>male
 					<%= f.radio_button :guide_gender_eq, 2 %>female
 				</div>
-				<div class="col-2 py-4">
-					<%= f.submit "serch", class: "form-control btn-outline-secondary" %>
-				</div>
 			</div>
-			<% end %>
 		</div>
+		<div class="col-lg-2 col-12 mt-5"><%= f.submit "serch", class: "form-control btn-outline-secondary" %></div>
 	</div>
+	<% end %>
 
 
 	<div class="row">

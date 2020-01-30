@@ -4,8 +4,8 @@
       <div class="card text-center">
         <h2 class="card-header">tourist sign up</h2>
       </div>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <div class="card-body">
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
           <div class="row">
             <div class="col-6">
@@ -64,9 +64,9 @@
 
         <div class="card-footer">
           <%= f.submit "Sign up", class: 'form-control btn-outline-secondary' %>
-          <% end %>
         </div>
       </div>
+      <% end %>
       <div class="other-register">
         <%= link_to "guideの方はこちら", new_guide_registration_path, class: "btn btn-outline-danger form-control"%>
       </div>
