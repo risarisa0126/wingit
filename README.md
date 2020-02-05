@@ -3,4 +3,4 @@
 
 WINGIT(http://wingit.site/)
 
-![画像名](./images/brevite-KJWjsztHPPU-unsplash.jpg)
+![画像名](https://github.com/risarisa0126/wingit/blob/master/app/assets/images/brevite-KJWjsztHPPU-unsplash.jpg)
