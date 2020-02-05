@@ -10,8 +10,8 @@ To meet a new japanese friend as a guide when you travel in Japan. Why don't you
 
 ## :star: Usage
 ```bash
-$ git clone https://github.com/risarisa0126/HANSHIN-Tigers-report.git
-$ cd HANSHIN-Tigers-report
+$ git clone https://github.com/risarisa0126/wingit.git
+$ cd wingit
 ```
 
 ## :star: License
