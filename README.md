@@ -9,8 +9,8 @@ To meet a new japanese friend as a guide when you travel in Japan. Why don't you
 ## :star: Setup
 
 ## :star: Usage
-$ git clone https://github.com/donchan922/HANSHIN-Tigers-report.git
-$ cd HANSHIN-Tigers-report
+'$ git clone https://github.com/donchan922/HANSHIN-Tigers-report.git
+$ cd HANSHIN-Tigers-report'
 
 ## :star: License
 
