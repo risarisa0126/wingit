@@ -1,8 +1,6 @@
 
 # WINGIT
-To meet a new japanese friend as a guide when you travel in Japan
-
-(http://wingit.site/)
+To meet a new japanese friend as a guide when you travel in Japan. Why don't you find friends in http://wingit.site/ !
 
 ![画像名](https://github.com/risarisa0126/wingit/blob/master/app/assets/images/brevite-KJWjsztHPPU-unsplash.jpg)
 
