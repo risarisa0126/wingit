@@ -1,6 +1,8 @@
 
-# WINGIT (h1)
+# WINGIT
 
-WINGIT(http://wingit.site/)
+(http://wingit.site/)
 
 ![画像名](https://github.com/risarisa0126/wingit/blob/master/app/assets/images/brevite-KJWjsztHPPU-unsplash.jpg)
+
+## :star:
