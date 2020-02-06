@@ -33,14 +33,25 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
+gem 'devise'
+gem 'cocoon'
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"
+gem 'kaminari', '~> 0.17.0'
+gem 'bootstrap', '~> 4.1.1'
+gem 'ransack'
+gem 'jquery-rails'
+gem 'country_select', require: 'country_select_without_sort_alphabetical'
+gem 'language_select'
+gem 'rails-i18n'
 ```
 
 ## :star: Note
-その他，補足情報や備考などを書きます。
+Register Tourists/Guides first, then you can look for some Tourists/Guides who will be able to meet up the places which you would like to travel/guide. You can chat on this application, and find friends immediately.
 
 
 ## :star: Author
 ▶︎ Github : risarisa0126
 
 ## :star: License
-ライセンスをしっかり記入しておく
+
