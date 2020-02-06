@@ -5,7 +5,7 @@ To meet a new japanese friend as a guide when you travel in Japan. Check out htt
 ![画像名](https://github.com/risarisa0126/wingit/blob/master/app/assets/images/brevite-KJWjsztHPPU-unsplash.jpg)
 
 ## :star: Description
-It provides opportunities to exchange international culture for foreigners who travels in Japan and Japanese who wants to make a foreigner friend. 
+It provides opportunities to exchange international culture for foreigners who travels in Japan and Japanese who wants to make a foreigner friend. <br>
 Foreigners = Tourists : 
 ・Not sure where to go/travel  
 ・Feel bored to travel by myself 
