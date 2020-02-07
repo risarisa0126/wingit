@@ -49,9 +49,9 @@ gem 'rails-i18n'
 ```
 
 ## :star: Note
-To registrate as a tourist click here http://wingit.site/tourist/sign_up
-To registrate as a native Japanese guide click here http://wingit.site/ guide/sign_up
-
+To registrate as a tourist click here http://wingit.site/tourist/sign_up<br>
+To registrate as a native Japanese guide click here http://wingit.site/ guide/sign_up<br>
+<br>
 After registrating as a tourist you will be able to select which city interests you and immidatly find Japanese living in that area that is interested in being your friend and guide. 
 Here you can chat with eachother and exchange details immidatly. Making friends has never been this easy!
 
