@@ -1,20 +1,22 @@
 
 # WINGIT
-To meet a new japanese friend as a guide when you travel in Japan. Check out http://wingit.site/ 
+Find a Native Japanese guide and friend  by checking out this link http://wingit.site/ 
 
 ![画像名](https://github.com/risarisa0126/wingit/blob/master/app/assets/images/brevite-KJWjsztHPPU-unsplash.jpg)
 
 ## :star: Description
-It provides opportunities to exchange international culture for foreigners who travels in Japan and Japanese who wants to make a foreigner friend. <br>
-Foreigners = Tourists : <br>
-・Not sure where to go/travel <br> 
-・Feel bored to travel by myself <br>
-・Want a Japanese friend since I’m in Japan <br>
+Provides opportunies for cultural exchange and friendship<br>
+between native Japanese and foreigners. <br>
 <br>
-Japanese = Guide : <br>
-・Want/Improve to practice other languages <br> 
-・Want to make a foreigners <br>
-
+Foreginers who wish to travel to Japan can:<br>
+<br>
+- Get recommendations and travel tips on where to go in Japan<br>
+- Make friends who can show you around the area and provide  insight<br>
+- Exchange of hobbies and interests <br>
+<br>
+Native Japanese get to: <br>
+- Learn more about others culture, language and interests<br>
+- Make friendships all over the world interested in Japan<br>
 
 ## :star: Usage
 ```bash
@@ -47,7 +49,11 @@ gem 'rails-i18n'
 ```
 
 ## :star: Note
-Register Tourists/Guides first, then you can look for some Tourists/Guides who will be able to meet up the places which you would like to travel/guide. You can chat on this application, and find friends immediately.
+To registrate as a tourist click here http://wingit.site/tourist/sign_up
+To registrate as a native Japanese guide click here http://wingit.site/ guide/sign_up
+
+After registrating as a tourist you will be able to select which city interests you and immidatly find Japanese living in that area that is interested in being your friend and guide. 
+Here you can chat with eachother and exchange details immidatly. Making friends has never been this easy!
 
 
 ## :star: Author
