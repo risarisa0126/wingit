@@ -59,5 +59,3 @@ Here you can chat with eachother and exchange details immidatly. Making friends 
 ## :star: Author
 ▶︎ Github : risarisa0126
 
-## :star: License
-
